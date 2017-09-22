@@ -3,11 +3,23 @@ html {
 }
 
 body {
-  background-color: white;
+  background-color: #0C0C0C;
+  color: #FEFEFE;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
   width: 100%;
   font-family: 'VT323', monospace;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.slideshow {
+  background-color: white;
 }
