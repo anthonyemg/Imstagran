@@ -23,3 +23,10 @@ body {
 .slideshow {
   background-color: white;
 }
+
+.searchBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
