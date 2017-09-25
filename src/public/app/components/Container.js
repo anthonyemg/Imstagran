@@ -10,15 +10,16 @@ class Container extends React.Component {
       windowWidth: 0,
       windowHeight: 0,
       feed: null,
-      username: '',
+      username: 'tonygreenheck',
       currentImage: null,
       currentImageIndex: null,
     };
     this.handleResize = this.handleResize.bind(this);
-    this.handleSubmission = this.handleSubmission.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUserChange = this.handleUserChange.bind(this);
     this.handleNext = this.handleNext.bind(this);
     this.handlePrevious = this.handlePrevious.bind(this);
+    this.handleAutoSlideshow = this.handleAutoSlideshow.bind(this);
   }
 
   handleResize () {
@@ -43,7 +44,7 @@ class Container extends React.Component {
     })
   }
 
-  handleSubmission () {
+  handleSubmit () {
     var url = 'https://www.instagram.com/' + this.state.username + '/media/';
     superagent.get(url).then((response) => {
       this.setState({
@@ -51,8 +52,8 @@ class Container extends React.Component {
         currentImage: response.body.items[0].images.standard_resolution.url,
         currentImageIndex: 0,
       })
-    });
-    console.log('feed updated', this.state.feed)
+    })
+  //   .then(console.log('woo', this.state.currentImageIndex).then(console.log('woo', this.state.currentImageIndex))
   }
 
   handleNext () {
@@ -79,6 +80,17 @@ class Container extends React.Component {
     }
   }
 
+  handleAutoSlideshow () {
+    console.log('auto!')
+    // console.log('auto length', this.state.feed.length)
+    // while(this.state.currentImageIndex + 1 !== this.state.feed.length) {
+    //   this.setTimeout(this.handleNext, 500);
+    // }
+
+  }
+
+
+
   render () {
     return (
       <div className='container'>
@@ -96,7 +108,7 @@ class Container extends React.Component {
         <div className='searchBar-inputField'>
           <button onClick={this.handlePrevious}>previous</button>
           <input type='text' placeholder='user' value={this.state.username} onChange={this.handleUserChange} />
-          <button onClick={this.handleSubmission}>submit</button>
+          <button onClick={this.handleSubmit}>submit</button>
           <button onClick={this.handleNext}>next</button>
         </div>
 
