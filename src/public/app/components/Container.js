@@ -1,43 +1,70 @@
 import React from 'react';
 import Slideshow from './Slideshow';
-import SearchBar from './SearchBar';
+import superagent from 'superagent';
 
 class Container extends React.Component {
 
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super (props);
     this.state = {
       windowWidth: 0,
       windowHeight: 0,
+      feed: null,
+      username: '',
     };
     this.handleResize = this.handleResize.bind(this);
+    this.handleSubmission = this.handleSubmission.bind(this);
+    this.handleUserChange = this.handleUserChange.bind(this);
   }
 
-  handleResize() {
+  handleResize () {
     this.setState({windowWidth: window.innerWidth, windowHeight: window.innerHeight});
   }
 
-  componentWillMount() {
+  componentWillMount () {
     this.handleResize();
   }
 
-  componentDidMount() {
+  componentDidMount () {
     window.addEventListener('resize', this.handleResize);
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     window.removeEventListener('resize', this.handleResize);
   }
 
-  render() {
+  handleUserChange (e) {
+    this.setState({
+      username: e.target.value
+    })
+  }
+
+  handleSubmission () {
+    var url = 'https://www.instagram.com/' + this.state.username + '/media/';
+    superagent.get(url).then((response) => {
+      this.setState({
+        feed: response.body.items
+      })
+    });
+    console.log('feed updated', this.state.feed)
+  }
+
+  render () {
     return (
       <div className='container'>
         <h1>slideshow</h1>
+
         <Slideshow
           widowWidth={this.state.windowWidth}
           windowHeight={this.state.windowHeight}
+          feed={this.state.feed}
+          username={this.state.username}
         />
-        <SearchBar />
+        <div className='searchBar-inputField'>
+          <input type='text' placeholder='user' value={this.state.username} onChange={this.handleUserChange} />
+          <button onClick={this.handleSubmission}>submit</button>
+        </div>
+
       </div>
     )
   }
