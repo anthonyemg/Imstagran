@@ -3,52 +3,43 @@ import superagent from 'superagent'
 
 class SearchBar extends React.Component {
 
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super (props);
     this.state = {
       pictures: '' ,
-      movies: 'test',
-      feed: []
+      feed: [],
+      username: ''
     }
-    this.test = this.test.bind(this);
+    this.handleSubmission = this.handleSubmission.bind(this);
+    this.handleUserChange = this.handleUserChange.bind(this);
   }
 
-  // test () {
-  //   superagent
-  //       .get('/test')
-  //       // .query(null)
-  //       // .set('Accept', 'aplication/json')
-  //       .end((err, response) => {
-  //          if(err) {
-  //            response.json({
-  //              confirmation: 'fail',
-  //              messgage: err.message
-  //            })
-  //            return
-  //          }
-  //          console.log('RESPONSE: ' + JSON.stringify(response.body.data.items))
-  //         //  this.props.feedFetched(response.body.data.items)
-  //          this.setState({
-  //            feed: response.body.data.items
-  //          })
-  //       })
-  // }
+  handleUserChange (e) {
+    this.setState({
+      username: e.target.value
+    })
+  }
 
-test() {
-    var url = 'https://www.instagram.com/tonygreenheck/media/';
+  handleSubmission () {
+    var url = 'https://www.instagram.com/' + this.state.username + '/media/';
     superagent.get(url).then((response) => {
       this.setState({
         feed: response.body.items
       })
-      console.log('woot', this.state.feed);
     });
   }
 
-  render() {
+  render () {
 
     return (
       <div className="searchBar">
-        <button onClick={this.test}>search</button>
+
+        <div className='searchBar-inputField'>
+          <input type='text' placeholder='user' value={this.state.username} onChange={this.handleUserChange} />
+          <button onClick={this.handleSubmission}>submit</button>
+        </div>
+
+        <span>{this.state.username}</span>
         {this.state.feed.map((img, idx) => {
           return (
             <div key={idx}>
@@ -56,6 +47,7 @@ test() {
             </div>
           )
         })}
+
       </div>
     )
   }

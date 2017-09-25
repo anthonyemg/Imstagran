@@ -30,3 +30,8 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.searchBar-intputField {
+  display: flex;
+  flex-direction: column;
+}
