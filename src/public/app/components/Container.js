@@ -21,6 +21,7 @@ class Container extends React.Component {
     this.handleNext = this.handleNext.bind(this);
     this.handlePrevious = this.handlePrevious.bind(this);
     this.handleAutoSlideshow = this.handleAutoSlideshow.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
   handleResize () {
@@ -94,11 +95,21 @@ class Container extends React.Component {
     // }
   }
 
+  handleKeyPress (e) {
+    if (e.charCode == 13) {
+      this.handleSubmit();
+    }
+  }
+
   render () {
     return (
       <div className='container'>
 
-        <h1>slideshow</h1>
+        <div className='searchBar'>
+          <button onClick={this.handlePrevious}>previous</button>
+          <input type='text' placeholder='Search' value={this.state.username} onChange={this.handleUserChange} onKeyPress={this.handleKeyPress}/>
+          <button onClick={this.handleNext}>next</button>
+        </div>
 
         <Slideshow
           widowWidth={this.state.windowWidth}
@@ -107,15 +118,6 @@ class Container extends React.Component {
           username={this.state.username}
           currentImage={this.state.currentImage}
         />
-
-        <div className='searchBar'>
-          <button onClick={this.handlePrevious}>previous</button>
-          <div>
-            <input type='text' placeholder='user' value={this.state.username} onChange={this.handleUserChange} />
-            <button onClick={this.handleSubmit}>submit</button>
-          </div>
-          <button onClick={this.handleNext}>next</button>
-        </div>
 
       </div>
     )
