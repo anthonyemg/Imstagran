@@ -106,9 +106,18 @@ class Container extends React.Component {
       <div className='container'>
 
         <div className='searchBar'>
-          <button onClick={this.handlePrevious}>previous</button>
+          {/* <button onClick={this.handlePrevious}>previous</button> */}
+          <div className='searchBar-title'>
+            <i className='fa fa-instagram fa-2x' />
+            <span>instagram</span>
+          </div>
           <input type='text' placeholder='Search' value={this.state.username} onChange={this.handleUserChange} onKeyPress={this.handleKeyPress}/>
-          <button onClick={this.handleNext}>next</button>
+          {/* <button onClick={this.handleNext}>next</button> */}
+          <div className='searchBar-buttons'>
+            <i className="fa fa-circle-thin fa-lg" />
+            <i className="fa fa-heart-o fa-lg" />
+            <i className="fa fa-user-o fa-lg" />
+          </div>
         </div>
 
         <Slideshow

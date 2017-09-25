@@ -42,7 +42,27 @@ body {
   position: fixed;
   border-bottom: 1px solid rgba(0,0,0,.0975);
   top: 0;
-    color: black;
+  color: rgb(35,35,35);
+}
+
+.searchBar-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 42px;
+}
+
+.searchBar-title i {
+  padding-right: 20px;
+  border-right: 1px solid rgba(0,0,0, 0.45);
+  color: rgb(35,35,35);
+}
+
+.searchBar span {
+  padding-left: 20px;
+  font-family: 'Leckerli One', cursive;
+  font-size: 28px;
+  color: rgb(35,35,35);
 }
 
 .searchBar input {
@@ -54,4 +74,13 @@ body {
   text-align: center;
   color: black;
   outline: none;
+}
+
+.searchBar-buttons {
+  width: 130px;
+  display: flex;
+  justify-content: space-between;
+  color: rgb(35,35,35);
+  margin-left: 65px;
+  margin-right: 42px;
 }

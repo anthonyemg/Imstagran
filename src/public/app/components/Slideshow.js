@@ -12,7 +12,7 @@ class Slideshow extends React.Component {
       <div className="slideshow" style={{width: this.props.windowHeight * 0.7, height: this.props.windowHeight * 0.7}}>
         {this.props.currentImage ?
           <img src={this.props.currentImage} width={this.props.windowHeight * 0.7} height={this.props.windowHeight * 0.7} /> :
-          <span>no image</span>
+          <span>search a user!</span>
         }
       </div>
     )
