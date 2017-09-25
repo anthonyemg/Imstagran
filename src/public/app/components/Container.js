@@ -18,6 +18,7 @@ class Container extends React.Component {
     this.handleSubmission = this.handleSubmission.bind(this);
     this.handleUserChange = this.handleUserChange.bind(this);
     this.handleNext = this.handleNext.bind(this);
+    this.handlePrevious = this.handlePrevious.bind(this);
   }
 
   handleResize () {
@@ -62,6 +63,14 @@ class Container extends React.Component {
     })
   }
 
+  handlePrevious () {
+    var previousIndex = this.state.currentImageIndex - 1;
+    this.setState({
+      currentImage: this.state.feed[previousIndex].images.standard_resolution.url,
+      currentImageIndex: previousIndex,
+    })
+  }
+
   render () {
     return (
       <div className='container'>
@@ -76,7 +85,7 @@ class Container extends React.Component {
         />
 
         <div className='searchBar-inputField'>
-          <button>previous</button>
+          <button onClick={this.handlePrevious}>previous</button>
           <input type='text' placeholder='user' value={this.state.username} onChange={this.handleUserChange} />
           <button onClick={this.handleSubmission}>submit</button>
           <button onClick={this.handleNext}>next</button>
