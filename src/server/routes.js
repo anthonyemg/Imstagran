@@ -1,15 +1,11 @@
 const routes = require('express').Router();
 var request = require('request');
 
-routes.get('/test', () => {
-  request('https://www.instagram.com/highsnobiety/media/', function (error, response, body) {
-    // // console.log('error:', error); // Print the error if one occurred
-    // console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-    // // console.log('body:', body); // Print the HTML for the Google homepage.
-    console.log(body)
-
-    }
-  );
+routes.post('/retrieve/photos', function(req, res){
+  request.get(`https://www.instagram.com/${req.body.data}/media/`,
+    function (e, r, data) {
+      res.send(data)
+    })
 });
 
 module.exports = routes;

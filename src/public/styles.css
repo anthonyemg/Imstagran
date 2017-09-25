@@ -30,13 +30,9 @@ body {
 }
 
 .searchBar {
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-}
-
-.searchBar-intputField {
-  display: flex;
-  flex-direction: column;
+  padding: 20px;
 }

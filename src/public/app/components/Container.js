@@ -7,10 +7,11 @@ class Container extends React.Component {
   constructor (props) {
     super (props);
     this.state = {
+      test: 'noChange',
       windowWidth: 0,
       windowHeight: 0,
       feed: null,
-      username: 'tonygreenheck',
+      username: '',
       currentImage: null,
       currentImageIndex: null,
     };
@@ -45,15 +46,20 @@ class Container extends React.Component {
   }
 
   handleSubmit () {
-    var url = 'https://www.instagram.com/' + this.state.username + '/media/';
-    superagent.get(url).then((response) => {
+    fetch('/retrieve/photos', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({data: this.state.username}),
+    })
+    .then(res => res.json())
+    .then(data => {
       this.setState({
-        feed: response.body.items,
-        currentImage: response.body.items[0].images.standard_resolution.url,
+        feed: data.items,
+        currentImage: data.items[0].images.standard_resolution.url,
         currentImageIndex: 0,
       })
     })
-  //   .then(console.log('woo', this.state.currentImageIndex).then(console.log('woo', this.state.currentImageIndex))
+    .catch(err => console.log(err));
   }
 
   handleNext () {
@@ -86,10 +92,7 @@ class Container extends React.Component {
     // while(this.state.currentImageIndex + 1 !== this.state.feed.length) {
     //   this.setTimeout(this.handleNext, 500);
     // }
-
   }
-
-
 
   render () {
     return (
@@ -105,10 +108,12 @@ class Container extends React.Component {
           currentImage={this.state.currentImage}
         />
 
-        <div className='searchBar-inputField'>
+        <div className='searchBar'>
           <button onClick={this.handlePrevious}>previous</button>
-          <input type='text' placeholder='user' value={this.state.username} onChange={this.handleUserChange} />
-          <button onClick={this.handleSubmit}>submit</button>
+          <div>
+            <input type='text' placeholder='user' value={this.state.username} onChange={this.handleUserChange} />
+            <button onClick={this.handleSubmit}>submit</button>
+          </div>
           <button onClick={this.handleNext}>next</button>
         </div>
 
