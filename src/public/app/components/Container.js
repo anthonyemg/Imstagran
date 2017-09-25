@@ -56,24 +56,33 @@ class Container extends React.Component {
   }
 
   handleNext () {
-    var nextIndex = this.state.currentImageIndex + 1;
-    this.setState({
-      currentImage: this.state.feed[nextIndex].images.standard_resolution.url,
-      currentImageIndex: nextIndex,
-    })
+    if (this.state.currentImageIndex + 1 !== this.state.feed.length) {
+      var nextIndex = this.state.currentImageIndex + 1;
+      this.setState({
+        currentImage: this.state.feed[nextIndex].images.standard_resolution.url,
+        currentImageIndex: nextIndex,
+      })
+    } else {
+      console.log('sorry')
+    }
   }
 
   handlePrevious () {
-    var previousIndex = this.state.currentImageIndex - 1;
-    this.setState({
-      currentImage: this.state.feed[previousIndex].images.standard_resolution.url,
-      currentImageIndex: previousIndex,
-    })
+    if (this.state.currentImageIndex - 1 !== -1) {
+      var previousIndex = this.state.currentImageIndex - 1;
+      this.setState({
+        currentImage: this.state.feed[previousIndex].images.standard_resolution.url,
+        currentImageIndex: previousIndex,
+      })
+    } else {
+      console.log('sorry')
+    }
   }
 
   render () {
     return (
       <div className='container'>
+
         <h1>slideshow</h1>
 
         <Slideshow
@@ -91,12 +100,9 @@ class Container extends React.Component {
           <button onClick={this.handleNext}>next</button>
         </div>
 
-
-
       </div>
     )
   }
-
 }
 
 export default Container;
