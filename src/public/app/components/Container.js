@@ -1,6 +1,7 @@
 import React from 'react';
 import Slideshow from './Slideshow';
 import superagent from 'superagent';
+import UserInfo from './UserInfo';
 
 class Container extends React.Component {
 
@@ -11,7 +12,10 @@ class Container extends React.Component {
       windowWidth: 0,
       windowHeight: 0,
       feed: null,
-      username: '',
+      searchUsername: 'tonygreenheck',
+      currentUsername: '',
+      currentFullName: '',
+      currentUserImage: '',
       currentImage: null,
       currentImageIndex: null,
     };
@@ -42,7 +46,7 @@ class Container extends React.Component {
 
   handleUserChange (e) {
     this.setState({
-      username: e.target.value
+      searchUsername: e.target.value
     })
   }
 
@@ -50,7 +54,7 @@ class Container extends React.Component {
     fetch('/retrieve/photos', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({data: this.state.username}),
+      body: JSON.stringify({data: this.state.searchUsername}),
     })
     .then(res => res.json())
     .then(data => {
@@ -58,6 +62,9 @@ class Container extends React.Component {
         feed: data.items,
         currentImage: data.items[0].images.standard_resolution.url,
         currentImageIndex: 0,
+        currentUsername: data.items[0].user.username,
+        currentFullName: data.items[0].user.full_name,
+        currentUserImage: data.items[0].user.profile_picture,
       })
     })
     .catch(err => console.log(err));
@@ -109,9 +116,9 @@ class Container extends React.Component {
           {/* <button onClick={this.handlePrevious}>previous</button> */}
           <div className='searchBar-title'>
             <i className='fa fa-instagram fa-2x' />
-            <span>instagram</span>
+            <span>imstagran</span>
           </div>
-          <input type='text' placeholder='Search' value={this.state.username} onChange={this.handleUserChange} onKeyPress={this.handleKeyPress}/>
+          <input type='text' placeholder='Search' value={this.state.searchUsername} onChange={this.handleUserChange} onKeyPress={this.handleKeyPress}/>
           {/* <button onClick={this.handleNext}>next</button> */}
           <div className='searchBar-buttons'>
             <i className="fa fa-circle-thin fa-lg" />
@@ -120,11 +127,17 @@ class Container extends React.Component {
           </div>
         </div>
 
+        <UserInfo
+          windowHeight={this.state.windowHeight}
+          currentUsername={this.state.currentUsername}
+          currentFullName={this.state.currentFullName}
+          currentUserImage={this.state.currentUserImage}
+        />
+
         <Slideshow
           widowWidth={this.state.windowWidth}
           windowHeight={this.state.windowHeight}
           feed={this.state.feed}
-          username={this.state.username}
           currentImage={this.state.currentImage}
         />
 
