@@ -12,8 +12,10 @@ class UserInfo extends React.Component {
   render() {
 
     return (
-      <div className='userInfo' style={{width: this.props.windowHeight * 0.7}}>
-        <img src={this.props.currentUserImage} className='userInfo-image' width='152' height = '152' />
+      <div className='userInfo'>
+        <div className='userInfo-imageWrapper'>
+          <img src={this.props.currentUserImage} className='userInfo-image' />
+        </div>
         <div className='userInfo-text'>
           <div className='userInfo-textUsername' >
             <div className='userInfo-username'>{this.props.currentUsername}</div>
