@@ -134,12 +134,26 @@ class Container extends React.Component {
           currentUserImage={this.state.currentUserImage}
         />
 
-        <Slideshow
+        {/* <Slideshow
           widowWidth={this.state.windowWidth}
           windowHeight={this.state.windowHeight}
           feed={this.state.feed}
           currentImage={this.state.currentImage}
-        />
+        /> */}
+
+        {this.state.feed ?
+          <div className="wrapper" style={{width:this.state.windowHeight}}>
+            <img src={this.state.feed[0].images.standard_resolution.url} width='100%' height='100%'  className="one"/>
+            <img src={this.state.feed[2].images.standard_resolution.url} width='100%' height='100%'  className="two"/>
+            <img src={this.state.feed[3].images.standard_resolution.url} width='100%' height='100%'  className="three"/>
+            <img src={this.state.feed[4].images.standard_resolution.url} width='100%' height='100%'  className="four"/>
+            <img src={this.state.feed[5].images.standard_resolution.url} width='100%' height='100%'  className="five"/>
+            <img src={this.state.feed[6].images.standard_resolution.url} width='100%' height='100%'  className="Six"/>
+            <img src={this.state.feed[7].images.standard_resolution.url} width='100%' height='100%'  className="Seven"/>
+            <img src={this.state.feed[8].images.standard_resolution.url} width='100%' height='100%'  className="Eignt"/>
+            <img src={this.state.feed[9].images.standard_resolution.url} width='100%' height='100%'  className="Nine"/>
+          </div> :
+          <h1>please search</h1> }
 
       </div>
     )

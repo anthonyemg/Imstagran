@@ -36,7 +36,7 @@ class UserInfo extends React.Component {
           </div>
           <div>
             <span className='userinfo-textStatsNumbers'>{this.props.currentFullName}</span>
-            <span className='userinfo-textStatsNumbersSubtext'>SEA / NYC</span>
+            <span className='userinfo-textStatsNumbersSubtext'>hipster comments..</span>
           </div>
         </div>
       </div>

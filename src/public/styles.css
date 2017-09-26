@@ -155,3 +155,51 @@ body {
 .userinfo-textStatsNumbersSubtext {
   margin-right: 35px;
 }
+
+* {box-sizing: border-box;}
+.wrapper {
+  margin: 0 auto;
+  height: 500px;
+}
+
+.wrapper > div {
+  background-color: rgba(233,171,88,.5);
+  padding: 1em;
+  color: #d9480f;
+}.wrapper{
+  display: grid;
+  grid-template-columns: repeat(3, 30vmin);
+  grid-template-rows: repeat(3, 30vmin);
+  grid-gap: 28px; /*desktop*/
+  /*grid-gap: 5px; /*mobile*/
+  /*grid-auto-rows: minmax(3, 20vh);*/
+}
+.one {
+  grid-column: 1;
+  grid-row: 1;
+}
+.two {
+  grid-column: 2;
+  grid-row: 1;
+}
+.three {
+  grid-column: 3;
+  grid-row: 1;
+}
+.four {
+  grid-column: 1;
+  grid-row: 2;
+}
+.five {
+  grid-column: 2;
+  grid-row: 2;
+}
+.six {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.seven {
+  grid-column: 1;
+  grid-row: 3;
+}
