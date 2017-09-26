@@ -172,6 +172,10 @@ body {
   height: 500px;
 }*/
 
+.grid {
+  color: black;
+}
+
 .grid-wrapper > div {
   background-color: rgba(233,171,88,.5);
   padding: 1em;
@@ -192,6 +196,13 @@ body {
     grid-template-columns: repeat(3, 293px);
     grid-template-rows: repeat(6, 293px);
   }
+  .userInfo-imageWrapper {
+    width: 293px;
+  }
+  .userInfo {
+    width: 935px;
+  }
+}
 
 @media(max-width: 735px) {
   .grid-wrapper {
