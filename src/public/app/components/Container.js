@@ -1,7 +1,9 @@
 import React from 'react';
-import Slideshow from './Slideshow';
 import superagent from 'superagent';
+
+import Slideshow from './Slideshow';
 import UserInfo from './UserInfo';
+import Grid from './Grid';
 
 class Container extends React.Component {
 
@@ -113,13 +115,11 @@ class Container extends React.Component {
       <div className='container'>
 
         <div className='searchBar'>
-          {/* <button onClick={this.handlePrevious}>previous</button> */}
           <div className='searchBar-title'>
             <i className='fa fa-instagram fa-2x' />
             <span>imstagran</span>
           </div>
           <input type='text' placeholder='Search' value={this.state.searchUsername} onChange={this.handleUserChange} onKeyPress={this.handleKeyPress}/>
-          {/* <button onClick={this.handleNext}>next</button> */}
           <div className='searchBar-buttons'>
             <i className="fa fa-circle-thin fa-lg" />
             <i className="fa fa-heart-o fa-lg" />
@@ -134,26 +134,19 @@ class Container extends React.Component {
           currentUserImage={this.state.currentUserImage}
         />
 
+        <Grid
+          windowWidth={this.state.windowWidth}
+          feed={this.state.feed}
+        />
+
         {/* <Slideshow
           widowWidth={this.state.windowWidth}
           windowHeight={this.state.windowHeight}
           feed={this.state.feed}
           currentImage={this.state.currentImage}
         /> */}
-
-        {this.state.feed ?
-          <div className="wrapper" style={{width:this.state.windowHeight}}>
-            <img src={this.state.feed[0].images.standard_resolution.url} width='100%' height='100%'  className="one"/>
-            <img src={this.state.feed[2].images.standard_resolution.url} width='100%' height='100%'  className="two"/>
-            <img src={this.state.feed[3].images.standard_resolution.url} width='100%' height='100%'  className="three"/>
-            <img src={this.state.feed[4].images.standard_resolution.url} width='100%' height='100%'  className="four"/>
-            <img src={this.state.feed[5].images.standard_resolution.url} width='100%' height='100%'  className="five"/>
-            <img src={this.state.feed[6].images.standard_resolution.url} width='100%' height='100%'  className="Six"/>
-            <img src={this.state.feed[7].images.standard_resolution.url} width='100%' height='100%'  className="Seven"/>
-            <img src={this.state.feed[8].images.standard_resolution.url} width='100%' height='100%'  className="Eignt"/>
-            <img src={this.state.feed[9].images.standard_resolution.url} width='100%' height='100%'  className="Nine"/>
-          </div> :
-          <h1>please search</h1> }
+        {/* <button onClick={this.handleNext}>next</button> */}
+        {/* <button onClick={this.handlePrevious}>previous</button> */}
 
       </div>
     )
