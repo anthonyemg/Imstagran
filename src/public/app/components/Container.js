@@ -3,6 +3,7 @@ import superagent from 'superagent';
 
 import Slideshow from './Slideshow';
 import UserInfo from './UserInfo';
+import UserInfoMobile from './UserInfoMobile'
 import Grid from './Grid';
 
 class Container extends React.Component {
@@ -132,6 +133,10 @@ class Container extends React.Component {
           currentUsername={this.state.currentUsername}
           currentFullName={this.state.currentFullName}
           currentUserImage={this.state.currentUserImage}
+        />
+
+        <UserInfoMobile
+          currentFullName={this.state.currentFullName}
         />
 
         <Grid

@@ -2,12 +2,9 @@ import React from 'react';
 
 class UserInfo extends React.Component {
 
-  constructor(props) {
-    super(props)
-
+  constructor (props) {
+    super (props)
   }
-
-
 
   render() {
 
@@ -20,8 +17,8 @@ class UserInfo extends React.Component {
           <div className='userInfo-text'>
             <div className='userInfo-textUsername' >
               <div className='userInfo-username'>{this.props.currentUsername}</div>
-              <button>Edit Profile</button>
-              <i className="fa fa-cog fa-2x" />
+              <button>Follow</button>
+              {/* <i className="fa fa-cog fa-2x" /> */}
             </div>
             <div className='userinfo-textStats'>
               <div>
@@ -29,7 +26,7 @@ class UserInfo extends React.Component {
                 <span className='userinfo-textStatsNumbersSubtext'>posts</span>
               </div>
               <div>
-                <span className='userinfo-textStatsNumbers'>265</span>
+                <span className='userinfo-textStatsNumbers'>263</span>
                 <span className='userinfo-textStatsNumbersSubtext'>followers</span>
               </div>
               <div>
@@ -37,13 +34,14 @@ class UserInfo extends React.Component {
                 <span className='userinfo-textStatsNumbersSubtext'>following</span>
               </div>
             </div>
-            <div>
+            <div className='userinfo-name'>
               <span className='userinfo-textStatsNumbers'>{this.props.currentFullName}</span>
               <span className='userinfo-textStatsNumbersSubtext'>hipster comments..</span>
             </div>
           </div>
         </div>
       )
+
     } else {
       return (
         <div>

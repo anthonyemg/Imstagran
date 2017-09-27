@@ -10,7 +10,7 @@ body {
   align-items: center;
   height: 100%;
   width: 100%;
-  font-family: 'VT323', monospace;
+  font-family: 'Roboto', sans-serif;
   margin: 0px;
 }
 
@@ -37,7 +37,7 @@ body {
 
 .searchBar {
   width: 100%;
-  height: 77px;
+  height: 76px;
   background-color: rgb(255,255,255);
   display: flex;
   justify-content: space-between;
@@ -94,7 +94,6 @@ body {
   flex-direction: row;
   margin-top: 40px;
   margin-bottom: 40px;
-  font-family: 'Roboto', sans-serif;
   justify-content: flex-start;
   height: 152px;
   width: 96vw;
@@ -123,8 +122,9 @@ body {
   margin-right: 10px;
   width: 123px;
   border-radius: 3px;
-  background-color: rgb(250,250,250);
-  border: 1px solid rgba(0,0,0,.0975);
+  background-color: rgb(25,145,244);
+  color: rgb(255,255,255);
+  border: none;
   height: 28px;
   outline: none;
   cursor: pointer;
@@ -172,15 +172,9 @@ body {
   height: 500px;
 }*/
 
-.grid {
+/*.grid {
   color: black;
-}
-
-.grid-wrapper > div {
-  background-color: rgba(233,171,88,.5);
-  padding: 1em;
-  color: #d9480f;
-}
+}*/
 
 .grid-wrapper{
   display: grid;
@@ -190,6 +184,62 @@ body {
   margin: 0 auto;
 }
 
+.userInfoMobile {
+  width: 100%;
+  color: rgb(35,35,35);
+}
+
+.userInfoMobile-top {
+  height: 42px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 32px;
+  border-bottom: 1px solid #efefef;
+  margin-bottom: 12px;
+}
+
+.userInfoMobile-fullName {
+  margin-right: 5px;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.6px;
+}
+
+.userInfoMobile-comment {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.userInfoMobile-bottom {
+  display: grid;
+  grid-template-columns: repeat(3, 33vw);
+  grid-template-rows: repeat(1, 35px);
+  grid-gap: 3px;
+  margin-bottom: 12px;
+}
+
+.userInfoMobile-bottomStats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.userInfoMobile-bottomStatsNumbers {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.userInfoMobile-bottomSubtext {
+  font-weight: 400;
+  font-size: 14px;
+  color: rgb(153,153,153);
+}
+
+.userInfoMobile-bottomSubtext:hover {
+  color: rgb(35,35,35);
+}
 
 @media(min-width: 990px) {
   .grid-wrapper {
@@ -211,4 +261,42 @@ body {
     grid-gap: 3px;
   }
 
+  .userinfo-textStats {
+    display: none;
+  }
+
+  .userinfo-name {
+    display: none;
+  }
+
+  .userInfo-textUsername {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    height: 100%;
+  }
+
+  .userInfo-username {
+    margin: 0px;
+    font-size: 22px;
+    font-weight: 400;
+  }
+
+  .userInfo-textUsername button {
+    width: 240px;
+  }
+
+  .userInfo {
+    height: 77px;
+    margin-top: 23px;
+    margin-bottom: 24px;
+  }
+
+  .userInfo-image {
+    height: 77px;
+  }
+
+  .userInfo-imageWrapper {
+    width: 77px;
+  }
 }
