@@ -35,24 +35,37 @@ body {
   flex-direction: column;
 }
 
-.searchBar {
+.searchBar-container{
   width: 100%;
   height: 76px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(255,255,255);
+  border-bottom: 1px solid rgba(0,0,0,.0975);
+  position: fixed;
+  top: 0;
+}
+
+.searchBar {
+  width: 100%;
+  height: 100%;
   background-color: rgb(255,255,255);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
-  border-bottom: 1px solid rgba(0,0,0,.0975);
-  top: 0;
+  position: absolute;
   color: rgb(35,35,35);
+  margin-right: 100px;
+  max-width: 1010px;
 }
 
 .searchBar-title {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 42px;
+  margin-left: 40px;
 }
 
 .searchBar-title i {
@@ -61,7 +74,7 @@ body {
   color: rgb(35,35,35);
 }
 
-.searchBar span {
+.searchBar-title span {
   padding-left: 20px;
   font-family: 'Leckerli One', cursive;
   font-size: 28px;
@@ -84,29 +97,38 @@ body {
   display: flex;
   justify-content: space-between;
   color: rgb(35,35,35);
-  margin-left: 65px;
-  margin-right: 42px;*/
+  margin-left: 65px;*/
+  margin-right: 47px;
+  min-width: 294px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .searchBar-buttons button {
   margin-right: 24px;
-  height: 34px;
   border-radius: 3px;
   background-color: rgb(25,145,244);
   color: rgb(255,255,255);
   border: none;
-  height: 28px;
+  height: 34px;
+  width: 120px;
   outline: none;
   cursor: pointer;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .searchBar-buttons span {
   color: rgb(25,145,244);
   font-family: 'Roboto', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
+}
+
+.searchBar-buttonsSignUpLogIn {
+  pointer: curspor;
 }
 
 .userInfo {
@@ -193,9 +215,9 @@ body {
   height: 500px;
 }*/
 
-/*.grid {
+.grid {
   color: black;
-}*/
+}
 
 .grid-wrapper{
   display: grid;
@@ -208,6 +230,7 @@ body {
 .userInfoMobile {
   width: 100%;
   color: rgb(35,35,35);
+  display: none;
 }
 
 .userInfoMobile-top {
@@ -276,6 +299,9 @@ body {
 }
 
 @media(max-width: 735px) {
+  .userInfoMobile {
+    display: block;
+  }
   .grid-wrapper {
     grid-template-columns: repeat(3, 33vw);
     grid-template-rows: repeat(6, 33vw);
