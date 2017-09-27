@@ -10,9 +10,14 @@ class SearchBar extends React.Component {
     return (
       <div className='searchBar-container'>
         <div className='searchBar'>
-          <div className='searchBar-title'>
-            <i className='fa fa-instagram fa-2x' />
-            <span>imstagran</span>
+          <div className='searchBar-hamburger'>
+            <i className='fa fa-bars fa-2x' />
+          </div>
+          <div className='searchBar-titleWrapper'>
+            <div className='searchBar-title'>
+              <i className='fa fa-instagram fa-2x' />
+              <span>imstagran</span>
+            </div>
           </div>
           <input
             type='text'

@@ -12,6 +12,7 @@ body {
   width: 100%;
   font-family: 'Roboto', sans-serif;
   margin: 0px;
+  overflow-x: hidden;
 }
 
 .container {
@@ -24,6 +25,7 @@ body {
   position: absolute;
   top: 77px;
   left: 0px;
+
 }
 
 .slideshow {
@@ -51,27 +53,35 @@ body {
 .searchBar {
   width: 100%;
   height: 100%;
+  flex-direction: row;
   background-color: rgb(255,255,255);
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: absolute;
   color: rgb(35,35,35);
-  margin-right: 100px;
+  /*margin-right: 100px;*/
   max-width: 1010px;
+}
+
+.searchBar-titleWrapper {
+  width: 294px;
+  display: flex;
+  margin-left: 47px;
+
 }
 
 .searchBar-title {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 40px;
 }
 
 .searchBar-title i {
   padding-right: 20px;
   border-right: 1px solid rgba(0,0,0, 0.45);
   color: rgb(35,35,35);
+  margin-left: -7px;
 }
 
 .searchBar-title span {
@@ -79,6 +89,16 @@ body {
   font-family: 'Leckerli One', cursive;
   font-size: 28px;
   color: rgb(35,35,35);
+}
+
+/*mobile*/
+.searchBar-hamburger {
+  position: fixed;
+  top: 8px;
+  left: 20px;
+  cursor: pointer;
+  display: none;
+  -webkit-text-stroke: 3px rgb(255,255,255);
 }
 
 .searchBar input {
@@ -98,7 +118,7 @@ body {
   justify-content: space-between;
   color: rgb(35,35,35);
   margin-left: 65px;*/
-  margin-right: 47px;
+  margin-right: 20px;
   min-width: 294px;
   display: flex;
   flex-direction: row;
@@ -159,9 +179,10 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
+  cursor: default;
 }
 
-.userInfo-textUsername button {
+.userInfo-textUsername span {
   margin-right: 10px;
   width: 123px;
   border-radius: 3px;
@@ -169,10 +190,11 @@ body {
   color: rgb(255,255,255);
   border: none;
   height: 28px;
-  outline: none;
   cursor: pointer;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  vertical-align: center;
+  line-height: 28px;
 }
 
 .userInfo-username {
@@ -225,12 +247,14 @@ body {
   grid-template-rows: repeat(6, 30vw);
   grid-gap: 28px;
   margin: 0 auto;
+  min-width: 300px;
 }
 
 .userInfoMobile {
   width: 100%;
   color: rgb(35,35,35);
   display: none;
+  cursor: default;
 }
 
 .userInfoMobile-top {
@@ -270,6 +294,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 .userInfoMobile-bottomStatsNumbers {
   font-size: 14px;
   font-weight: 500;
@@ -283,6 +308,37 @@ body {
 
 .userInfoMobile-bottomSubtext:hover {
   color: rgb(35,35,35);
+}
+
+.mobileFooter {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 46px;
+  width: 100%;
+  position: fixed;
+  bottom: 0vh;
+  background-color: rgb(255,255,255);
+  border-top: 1px solid rgba(0,0,0,.0975);
+}
+
+.mobileFooter-title {
+  padding-left: 20px;
+  font-family: 'Leckerli One', cursive;
+  font-size: 28px;
+  color: rgb(35,35,35);
+}
+
+.mobileFooter-buttonsSignUpLogIn {
+  padding-right: 20px;
+}
+
+.mobileFooter-buttonsSignUpLogIn span {
+  color: rgb(25,145,244);
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 @media(min-width: 990px) {
@@ -299,13 +355,34 @@ body {
 }
 
 @media(max-width: 735px) {
-  .userInfoMobile {
+  .container {
+    top: 46px;
+  }
+
+  .searchBar-container {
+    height: 46px;
     display: block;
   }
-  .grid-wrapper {
-    grid-template-columns: repeat(3, 33vw);
-    grid-template-rows: repeat(6, 33vw);
-    grid-gap: 3px;
+
+  .searchBar {
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .searchBar-hamburger {
+    display: block;
+  }
+
+  .searchBar-buttons {
+    display: none;
+  }
+
+  .searchBar-title {
+    display: none;
+  }
+
+  .userInfoMobile {
+    display: block;
   }
 
   .userinfo-textStats {
@@ -329,7 +406,7 @@ body {
     font-weight: 400;
   }
 
-  .userInfo-textUsername button {
+  .userInfo-textUsername span {
     width: 240px;
   }
 
@@ -346,4 +423,15 @@ body {
   .userInfo-imageWrapper {
     width: 77px;
   }
+
+  .grid-wrapper {
+    grid-template-columns: repeat(3, 33vw);
+    grid-template-rows: repeat(6, 33vw);
+    grid-gap: 3px;
+  }
+
+  .mobileFooter {
+    display: flex;
+  }
+
 }

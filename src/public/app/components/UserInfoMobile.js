@@ -8,7 +8,7 @@ class UserInfoMobile extends React.Component {
 
   render () {
     return (
-      <div className = 'userInfoMobile'>
+      <div className = 'userInfoMobile' style={{display: this.props.currentFullName && this.props.windowWidth < 735 ? 'block ' : 'none'}}>
         <div className = 'userInfoMobile-top'>
           <span className ='userInfoMobile-fullName'>{this.props.currentFullName}</span>
           <span className ='userInfoMobile-comment'>hipster comments..</span>

@@ -6,6 +6,7 @@ import SearchBar from './SearchBar'
 import UserInfo from './UserInfo';
 import UserInfoMobile from './UserInfoMobile'
 import Grid from './Grid';
+import MobileFooter from './MobileFooter';
 
 class Container extends React.Component {
 
@@ -131,12 +132,15 @@ class Container extends React.Component {
 
         <UserInfoMobile
           currentFullName={this.state.currentFullName}
+          windowWidth={this.state.windowWidth}
         />
 
         <Grid
           windowWidth={this.state.windowWidth}
           feed={this.state.feed}
         />
+
+        <MobileFooter />
 
         {/* <Slideshow
           widowWidth={this.state.windowWidth}

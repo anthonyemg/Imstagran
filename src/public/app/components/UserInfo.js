@@ -17,8 +17,7 @@ class UserInfo extends React.Component {
           <div className='userInfo-text'>
             <div className='userInfo-textUsername' >
               <div className='userInfo-username'>{this.props.currentUsername}</div>
-              <button>Follow</button>
-              {/* <i className="fa fa-cog fa-2x" /> */}
+              <span>Follow</span>
             </div>
             <div className='userinfo-textStats'>
               <div>
