@@ -15,7 +15,7 @@ class Grid extends React.Component {
               <img src={img.images.standard_resolution.url} width='100%' height='100%' key={idx} />
             ))}
           </div>
-          : <h3>please search username above..</h3>
+          : <h3>search a user ^</h3>
         }
       </div>
     )

@@ -60,7 +60,6 @@ body {
   align-items: center;
   position: absolute;
   color: rgb(35,35,35);
-  /*margin-right: 100px;*/
   max-width: 1010px;
 }
 
@@ -68,7 +67,6 @@ body {
   width: 294px;
   display: flex;
   margin-left: 47px;
-
 }
 
 .searchBar-title {
@@ -113,13 +111,8 @@ body {
 }
 
 .searchBar-buttons {
-  /*width: 130px;
-  display: flex;
-  justify-content: space-between;
-  color: rgb(35,35,35);
-  margin-left: 65px;*/
   margin-right: 20px;
-  min-width: 294px;
+  min-width: 320px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -164,7 +157,6 @@ body {
 
 .userInfo-imageWrapper {
   width: 30vw;
-  /*background-color: blue;*/
   display: flex;
   justify-content: center;
   align-items: center;
@@ -342,6 +334,7 @@ body {
 }
 
 @media(min-width: 990px) {
+
   .grid-wrapper {
     grid-template-columns: repeat(3, 293px);
     grid-template-rows: repeat(6, 293px);
@@ -352,9 +345,11 @@ body {
   .userInfo {
     width: 935px;
   }
+
 }
 
 @media(max-width: 735px) {
+
   .container {
     top: 46px;
   }

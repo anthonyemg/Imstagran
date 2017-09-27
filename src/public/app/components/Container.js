@@ -39,6 +39,7 @@ class Container extends React.Component {
 
   componentWillMount () {
     this.handleResize();
+    this.handleSubmit();
   }
 
   componentDidMount () {
