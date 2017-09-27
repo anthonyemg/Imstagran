@@ -2,6 +2,7 @@ import React from 'react';
 import superagent from 'superagent';
 
 import Slideshow from './Slideshow';
+import SearchBar from './SearchBar'
 import UserInfo from './UserInfo';
 import UserInfoMobile from './UserInfoMobile'
 import Grid from './Grid';
@@ -115,18 +116,11 @@ class Container extends React.Component {
     return (
       <div className='container'>
 
-        <div className='searchBar'>
-          <div className='searchBar-title'>
-            <i className='fa fa-instagram fa-2x' />
-            <span>imstagran</span>
-          </div>
-          <input type='text' placeholder='Search' value={this.state.searchUsername} onChange={this.handleUserChange} onKeyPress={this.handleKeyPress}/>
-          <div className='searchBar-buttons'>
-            <i className="fa fa-circle-thin fa-lg" />
-            <i className="fa fa-heart-o fa-lg" />
-            <i className="fa fa-user-o fa-lg" />
-          </div>
-        </div>
+        <SearchBar
+          searchUsername={this.state.searchUsername}
+          handleUserChange={this.handleUserChange}
+          handleKeyPress={this.handleKeyPress}
+        />
 
         <UserInfo
           windowHeight={this.state.windowHeight}

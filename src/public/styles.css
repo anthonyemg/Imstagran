@@ -80,12 +80,33 @@ body {
 }
 
 .searchBar-buttons {
-  width: 130px;
+  /*width: 130px;
   display: flex;
   justify-content: space-between;
   color: rgb(35,35,35);
   margin-left: 65px;
-  margin-right: 42px;
+  margin-right: 42px;*/
+}
+
+.searchBar-buttons button {
+  margin-right: 24px;
+  height: 34px;
+  border-radius: 3px;
+  background-color: rgb(25,145,244);
+  color: rgb(255,255,255);
+  border: none;
+  height: 28px;
+  outline: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.searchBar-buttons span {
+  color: rgb(25,145,244);
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .userInfo {
@@ -190,7 +211,7 @@ body {
 }
 
 .userInfoMobile-top {
-  height: 42px;
+  height: 40px;
   width: 100%;
   display: flex;
   justify-content: flex-start;
@@ -289,7 +310,7 @@ body {
   .userInfo {
     height: 77px;
     margin-top: 23px;
-    margin-bottom: 24px;
+    margin-bottom: 30px;
   }
 
   .userInfo-image {
