@@ -1,5 +1,4 @@
 import React from 'react';
-import superagent from 'superagent';
 
 import Slideshow from './Slideshow';
 import SearchBar from './SearchBar'
@@ -162,7 +161,7 @@ class Container extends React.Component {
           windowHeight={this.state.windowHeight}
           feed={this.state.feed}
           currentImage={this.state.currentImage}
-        /> 
+        />
       */}
       {/* <button onClick={this.handleNext}>next</button> */}
       {/* <button onClick={this.handlePrevious}>previous</button> */}
