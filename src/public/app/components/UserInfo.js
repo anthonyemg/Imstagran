@@ -21,21 +21,21 @@ class UserInfo extends React.Component {
             </div>
             <div className='userinfo-textStats'>
               <div>
-                <span className='userinfo-textStatsNumbers'>196</span>
+                <span className='userinfo-textStatsNumbers'>{this.props.posts}</span>
                 <span className='userinfo-textStatsNumbersSubtext'>posts</span>
               </div>
               <div>
-                <span className='userinfo-textStatsNumbers'>263</span>
+                <span className='userinfo-textStatsNumbers'>{this.props.followers}</span>
                 <span className='userinfo-textStatsNumbersSubtext'>followers</span>
               </div>
               <div>
-                <span className='userinfo-textStatsNumbers'>332</span>
+                <span className='userinfo-textStatsNumbers'>{this.props.following}</span>
                 <span className='userinfo-textStatsNumbersSubtext'>following</span>
               </div>
             </div>
             <div className='userinfo-name'>
               <span className='userinfo-textStatsNumbers'>{this.props.currentFullName}</span>
-              <span className='userinfo-textStatsNumbersSubtext'>hipster comments..</span>
+              <span className='userinfo-textStatsNumbersSubtext'>lorem ipsum..</span>
             </div>
           </div>
         </div>

@@ -23,6 +23,9 @@ class Container extends React.Component {
       currentUserImage: '',
       currentImage: null,
       currentImageIndex: null,
+      posts: '',
+      followers: '',
+      following: '',
     };
     this.handleResize = this.handleResize.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -31,15 +34,24 @@ class Container extends React.Component {
     this.handlePrevious = this.handlePrevious.bind(this);
     this.handleAutoSlideshow = this.handleAutoSlideshow.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.randomNumberGenerator = this.randomNumberGenerator.bind(this);
   }
 
   handleResize () {
-    this.setState({windowWidth: window.innerWidth, windowHeight: window.innerHeight});
+    this.setState({
+      windowWidth: window.innerWidth,
+      windowHeight: window.innerHeight
+    });
   }
 
   componentWillMount () {
     this.handleResize();
     this.handleSubmit();
+    this.setState({
+      posts: this.randomNumberGenerator(),
+      followers: this.randomNumberGenerator(),
+      following: this.randomNumberGenerator()
+    });
   }
 
   componentDidMount () {
@@ -114,6 +126,10 @@ class Container extends React.Component {
     }
   }
 
+  randomNumberGenerator () {
+    return Math.ceil(1000 * Math.random());
+  }
+
   render () {
     return (
       <div className='container'>
@@ -129,11 +145,17 @@ class Container extends React.Component {
           currentUsername={this.state.currentUsername}
           currentFullName={this.state.currentFullName}
           currentUserImage={this.state.currentUserImage}
+          posts={this.state.posts}
+          followers={this.state.followers}
+          following={this.state.following}
         />
 
         <UserInfoMobile
           currentFullName={this.state.currentFullName}
           windowWidth={this.state.windowWidth}
+          posts={this.state.posts}
+          followers={this.state.followers}
+          following={this.state.following}
         />
 
         <Grid
@@ -142,6 +164,7 @@ class Container extends React.Component {
         />
 
         <MobileFooter />
+
 
         {/* <Slideshow
           widowWidth={this.state.windowWidth}

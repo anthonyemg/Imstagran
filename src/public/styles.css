@@ -25,7 +25,7 @@ body {
   position: absolute;
   top: 77px;
   left: 0px;
-
+  padding-bottom: 35px;
 }
 
 .slideshow {
@@ -231,26 +231,45 @@ body {
 
 .grid {
   color: black;
+  padding-bottom: 14px;
 }
 
 .grid-wrapper{
   display: grid;
   grid-template-columns: repeat(3, 30vw);
-  grid-template-rows: repeat(6, 30vw);
+  grid-template-rows: repeat(5, 30vw);
   grid-gap: 28px;
-  margin: 0 auto;
+  /*margin: 0 auto;*/
   min-width: 300px;
 }
 
-.grid-componentContainer {
+.grid-component {
   display: flex;
   overflow: hidden;
   justify-content: center;
   align-items: center;
 }
 
-.grid-component {
+.grid-loadMoreWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 130px;
+  background-color: rgb(250,250,250);
+}
 
+.grid-loadMore {
+  width: 180px;
+  border-radius: 3px;
+  background-color: rgb(25,145,244);
+  color: rgb(255,255,255);
+  height: 34px;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 500;
+  text-align: center;
+  vertical-align: center;
+  line-height: 34px;
 }
 
 .userInfoMobile {
@@ -313,6 +332,22 @@ body {
   color: rgb(35,35,35);
 }
 
+.footer-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #003569;
+}
+
+.footer-text a {
+  color: #999;
+  text-decoration: none;
+}
+
+.footer-text i {
+  margin-left: 10px;
+}
+
 .mobileFooter {
   display: none;
   flex-direction: row;
@@ -331,10 +366,12 @@ body {
   font-family: 'Leckerli One', cursive;
   font-size: 28px;
   color: rgb(35,35,35);
+  cursor: default;
 }
 
 .mobileFooter-buttonsSignUpLogIn {
   padding-right: 20px;
+  cursor: pointer;
 }
 
 .mobileFooter-buttonsSignUpLogIn span {
@@ -348,7 +385,7 @@ body {
 
   .grid-wrapper {
     grid-template-columns: repeat(3, 293px);
-    grid-template-rows: repeat(6, 293px);
+    grid-template-rows: repeat(5, 293px);
   }
   .userInfo-imageWrapper {
     width: 293px;
@@ -403,7 +440,8 @@ body {
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-around;
-    height: 100%;
+    height: 100vh;
+    margin-top: -6px;
   }
 
   .userInfo-username {
@@ -432,8 +470,21 @@ body {
 
   .grid-wrapper {
     grid-template-columns: repeat(3, 33vw);
-    grid-template-rows: repeat(6, 33vw);
+    grid-template-rows: repeat(5, 33vw);
     grid-gap: 3px;
+  }
+
+  .grid-loadMoreWrapper {
+    height: 76px;
+  }
+
+  .grid-loadMore {
+    width: 90vw;
+    height: 34px;
+  }
+
+  .footer-text {
+    display: none;
   }
 
   .mobileFooter {
