@@ -87,6 +87,7 @@ body {
   font-family: 'Leckerli One', cursive;
   font-size: 28px;
   color: rgb(35,35,35);
+  cursor: default;
 }
 
 /*mobile*/
@@ -138,6 +139,7 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 500;
+  cursor: pointer;
 }
 
 .searchBar-buttonsSignUpLogIn {
@@ -199,6 +201,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  cursor: default;
 }
 
 .userinfo-textStats {
@@ -337,6 +340,7 @@ body {
   justify-content: space-between;
   align-items: center;
   color: #003569;
+  cursor: default;
 }
 
 .footer-text a {
