@@ -242,6 +242,17 @@ body {
   min-width: 300px;
 }
 
+.grid-componentContainer {
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-component {
+
+}
+
 .userInfoMobile {
   width: 100%;
   color: rgb(35,35,35);
