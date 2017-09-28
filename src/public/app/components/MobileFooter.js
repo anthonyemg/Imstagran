@@ -2,11 +2,11 @@ import React from 'react';
 
 class MobileFooter extends React.Component {
 
-  constructor (props) {
-    super(props)
+  constructor(props) {
+    super(props);
   }
 
-  render () {
+  render() {
     return (
       <div className='mobileFooter'>
         <div className='mobileFooter-title'>

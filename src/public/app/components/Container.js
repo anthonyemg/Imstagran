@@ -10,8 +10,8 @@ import MobileFooter from './MobileFooter';
 
 class Container extends React.Component {
 
-  constructor (props) {
-    super (props);
+  constructor(props) {
+    super(props);
     this.state = {
       test: 'noChange',
       windowWidth: 0,
@@ -32,7 +32,6 @@ class Container extends React.Component {
     this.handleUserChange = this.handleUserChange.bind(this);
     this.handleNext = this.handleNext.bind(this);
     this.handlePrevious = this.handlePrevious.bind(this);
-    this.handleAutoSlideshow = this.handleAutoSlideshow.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.randomNumberGenerator = this.randomNumberGenerator.bind(this);
   }
@@ -112,14 +111,6 @@ class Container extends React.Component {
     }
   }
 
-  handleAutoSlideshow () {
-    console.log('auto!')
-    // console.log('auto length', this.state.feed.length)
-    // while(this.state.currentImageIndex + 1 !== this.state.feed.length) {
-    //   this.setTimeout(this.handleNext, 500);
-    // }
-  }
-
   handleKeyPress (e) {
     if (e.charCode == 13) {
       this.handleSubmit();
@@ -127,7 +118,7 @@ class Container extends React.Component {
   }
 
   randomNumberGenerator () {
-    return Math.ceil(1000 * Math.random());
+    return Math.ceil(1000 * Math.random())
   }
 
   render () {
@@ -165,15 +156,16 @@ class Container extends React.Component {
 
         <MobileFooter />
 
-
-        {/* <Slideshow
+      {/*
+        <Slideshow
           widowWidth={this.state.windowWidth}
           windowHeight={this.state.windowHeight}
           feed={this.state.feed}
           currentImage={this.state.currentImage}
-        /> */}
-        {/* <button onClick={this.handleNext}>next</button> */}
-        {/* <button onClick={this.handlePrevious}>previous</button> */}
+        /> 
+      */}
+      {/* <button onClick={this.handleNext}>next</button> */}
+      {/* <button onClick={this.handlePrevious}>previous</button> */}
 
       </div>
     )

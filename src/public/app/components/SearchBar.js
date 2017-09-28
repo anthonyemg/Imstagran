@@ -2,11 +2,11 @@ import React from 'react';
 
 class SearchBar extends React.Component {
 
-  constructor (props) {
-    super(props)
+  constructor(props) {
+    super(props);
   }
 
-  render () {
+  render() {
     return (
       <div className='searchBar-container'>
         <div className='searchBar'>

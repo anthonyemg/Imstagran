@@ -2,20 +2,20 @@ import React from 'react';
 
 class Grid extends React.Component {
 
-  constructor  (props) {
-    super (props)
+  constructor(props) {
+    super(props);
   }
 
-  render () {
+  render() {
     return (
-      <div className = 'grid'>
+      <div className='grid'>
         {this.props.feed ?
-          <div className = "grid-wrapper">
+          <div className="grid-wrapper">
             {this.props.feed.slice(0, 18).map((img, idx) =>  (
-              <div className = 'grid-component' key = {idx}>
+              <div className='grid-component' key = {idx}>
                 <img
-                  src = {img.images.standard_resolution.url}
-                  style = {
+                  src={img.images.standard_resolution.url}
+                  style={
                     this.props.windowWidth < 990 ?
                       {
                         width: img.images.standard_resolution.width > img.images.standard_resolution.height ? 'auto' : '33vw',
@@ -31,7 +31,10 @@ class Grid extends React.Component {
               </div>
             ))}
           </div>
-          : <div></div>
+          :
+          <div>
+
+          </div>
         }
 
         <div className='grid-loadMoreWrapper'>

@@ -2,8 +2,8 @@ import React from 'react';
 
 class UserInfo extends React.Component {
 
-  constructor (props) {
-    super (props)
+  constructor(props) {
+    super(props);
   }
 
   render() {
@@ -12,7 +12,10 @@ class UserInfo extends React.Component {
       return (
         <div className='userInfo'>
           <div className='userInfo-imageWrapper'>
-            <img src={this.props.currentUserImage} className='userInfo-image' />
+            <img
+              src={this.props.currentUserImage}
+              className='userInfo-image'
+            />
           </div>
           <div className='userInfo-text'>
             <div className='userInfo-textUsername' >
@@ -40,10 +43,10 @@ class UserInfo extends React.Component {
           </div>
         </div>
       )
-
     } else {
       return (
         <div>
+
         </div>
       )
     }
