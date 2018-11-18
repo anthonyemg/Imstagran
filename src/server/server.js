@@ -4,7 +4,6 @@ const path = require('path');
 const morgan = require('morgan');
 const app = express();
 const routes = require('./routes');
-require('dotenv').config();
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());

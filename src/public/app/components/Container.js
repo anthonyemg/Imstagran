@@ -70,17 +70,18 @@ class Container extends React.Component {
     fetch('/retrieve/photos', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({data: this.state.searchUsername}),
+      // body: JSON.stringify({data: this.state.searchUsername}),
     })
     .then(res => res.json())
-    .then(data => {
+    .then(res => {
+      console.log('res', res)
       this.setState({
-        feed: data.items,
-        currentImage: data.items[0].images.standard_resolution.url,
+        feed: res.data,
+        currentImage: res.data[0].images.standard_resolution.url,
         currentImageIndex: 0,
-        currentUsername: data.items[0].user.username,
-        currentFullName: data.items[0].user.full_name,
-        currentUserImage: data.items[0].user.profile_picture,
+        currentUsername: res.data[0].user.username,
+        currentFullName: res.data[0].user.full_name,
+        currentUserImage: res.data[0].user.profile_picture,
       })
     })
     .catch(err => console.log(err));
