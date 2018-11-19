@@ -1,17 +1,14 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 
-class MobileFooter extends React.Component {
-
-  constructor(props) {
-    super(props);
-  }
-
+class MobileFooter extends PureComponent {
   render() {
     return (
       <div className='mobileFooter'>
+
         <div className='mobileFooter-title'>
           <span>imstagran</span>
         </div>
+
         <div className='mobileFooter-buttons'>
           <div className='mobileFooter-buttonsSignUpLogIn'>
             <span>Sign up</span>
@@ -19,6 +16,7 @@ class MobileFooter extends React.Component {
             <span>Log in</span>
           </div>
         </div>
+
       </div>
     )
   }

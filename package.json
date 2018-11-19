@@ -8,6 +8,7 @@
     "express": "^4.15.3",
     "morgan": "^1.8.2",
     "nodemon": "^1.11.0",
+    "prop-types": "^15.6.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.1.1",
@@ -22,8 +23,8 @@
     "webpack": "^2.5.1"
   },
   "scripts": {
-    "start": "nodemon src/server/server.js",
-    "watch": "webpack -d --w"
+    "server": "nodemon src/server/server.js",
+    "start": "webpack -d --w"
   },
   "author": "Anthony Greenheck"
 }

@@ -1,58 +1,71 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
-class UserInfo extends React.Component {
-
-  constructor(props) {
-    super(props);
-  }
-
+class UserInfo extends PureComponent {
   render() {
+    const {
+      user: {
+        bio,
+        counts,
+        username,
+        full_name,
+        profile_picture,
+      },
+    } = this.props;
 
-    if(this.props.currentUsername) {
-      return (
-        <div className='userInfo'>
-          <div className='userInfo-imageWrapper'>
-            <img
-              src={this.props.currentUserImage}
-              className='userInfo-image'
-            />
+    return (
+      <div className='userInfo'>
+        <div className='userInfo-imageWrapper'>
+          <img
+            className='userInfo-image'
+            src={profile_picture}
+          />
+        </div>
+
+        <div className='userInfo-text'>
+          <div className='userInfo-textUsername' >
+            <div>{username}</div>
+            <span>Follow</span>
           </div>
-          <div className='userInfo-text'>
-            <div className='userInfo-textUsername' >
-              <div className='userInfo-username'>{this.props.currentUsername}</div>
-              <span>Follow</span>
+
+          <div className='userinfo-textStats'>
+            <div>
+              <span>{counts.media}</span>
+              <span>posts</span>
             </div>
-            <div className='userinfo-textStats'>
-              <div>
-                <span className='userinfo-textStatsNumbers'>{this.props.posts}</span>
-                <span className='userinfo-textStatsNumbersSubtext'>posts</span>
-              </div>
-              <div>
-                <span className='userinfo-textStatsNumbers'>{this.props.followers}</span>
-                <span className='userinfo-textStatsNumbersSubtext'>followers</span>
-              </div>
-              <div>
-                <span className='userinfo-textStatsNumbers'>{this.props.following}</span>
-                <span className='userinfo-textStatsNumbersSubtext'>following</span>
-              </div>
+
+            <div>
+              <span>{counts.followed_by}</span>
+              <span>followers</span>
             </div>
-            <div className='userinfo-name'>
-              <span className='userinfo-textStatsNumbers'>{this.props.currentFullName}</span>
-              <span className='userinfo-textStatsNumbersSubtext'>lorem ipsum..</span>
+
+            <div>
+              <span>{counts.follows}</span>
+              <span>following</span>
             </div>
+          </div>
+
+          <div className='userinfo-name'>
+            <span>{full_name}</span>
+            <spam>{bio}</spam>
           </div>
         </div>
-      )
-    } else {
-      return (
-        <div>
-
-        </div>
-      )
-    }
-
+      </div>
+    )
   }
+}
 
+UserInfo.propTypes = {
+  user: PropTypes.shape({
+    bio: PropTypes.string,
+    username: PropTypes.string,
+    full_name: PropTypes.string,
+    profile_picture: PropTypes.string,
+  }),
+}
+
+UserInfo.defaultProps = {
+  user: {},
 }
 
 export default UserInfo;

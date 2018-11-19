@@ -217,15 +217,29 @@ body {
   align-items: center;
 }
 
-.userinfo-textStatsNumbers {
+.userinfo-name span {
+  font-weight: 500;
+}
+
+
+/* .userinfo-textStatsNumbers {
   margin-right: 5px;
   font-weight: 500;
   font-size: 17px;
-}
-
-.userinfo-textStatsNumbersSubtext {
+} */
+.userinfo-textStats div span {
   margin-right: 35px;
 }
+
+.userinfo-textStats div span:first-child {
+  font-size: 17px;
+  font-weight: 500;
+  margin-right: 5px;
+}
+
+/* .userinfo-textStatsNumbersSubtext {
+  margin-right: 35px;
+} */
 
 /** {box-sizing: border-box;}*/
 /*
@@ -348,11 +362,8 @@ body {
 
 .footer-text a {
   color: #999;
-  text-decoration: none;
-}
-
-.footer-text i {
   margin-left: 10px;
+  text-decoration: none;
 }
 
 .mobileFooter {

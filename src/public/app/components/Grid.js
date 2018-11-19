@@ -1,65 +1,71 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-class Grid extends React.Component {
-
+class Grid extends Component {
   constructor(props) {
     super(props);
   }
 
+  handleGrid(feed, windowWidth) {
+    const imageSize = windowWidth < 990 ? '33vw' : '293px';
+
+    return (
+      feed.map(function(img, idx) {
+        const imageWidth = img.images.standard_resolution.width;
+        const imageHeight = img.images.standard_resolution.height;
+        const isWidthGreaterThanHeight = imageWidth > imageHeight;
+        const width = isWidthGreaterThanHeight ? 'auto' : imageSize;
+        const height = isWidthGreaterThanHeight ? imageSize: 'auto';
+
+        return (
+          <div className='grid-component' key = {idx}>
+            <img
+              src={img.images.standard_resolution.url}
+              style={{ width: width, height: height }}
+            /> 
+          </div>
+        )
+      })
+    )
+  }
+
   render() {
+    const { feed, windowWidth } = this.props;
+
     return (
       <div className='grid'>
-        {this.props.feed ?
-          <div className="grid-wrapper">
-            {this.props.feed.slice(0, 18).map((img, idx) =>  (
-              <div className='grid-component' key = {idx}>
-                <img
-                  src={img.images.standard_resolution.url}
-                  style={
-                    this.props.windowWidth < 990 ?
-                      {
-                        width: img.images.standard_resolution.width > img.images.standard_resolution.height ? 'auto' : '33vw',
-                        height: img.images.standard_resolution.height > img.images.standard_resolution.width ? 'auto' : '33vw'
-                      }
-                      :
-                      {
-                        width: img.images.standard_resolution.width > img.images.standard_resolution.height ? 'auto' : '293px',
-                        height: img.images.standard_resolution.height > img.images.standard_resolution.width ? 'auto' : '293px'
-                      }
-                    }
-                />
-              </div>
-            ))}
-          </div>
-          :
-          <div>
 
-          </div>
-        }
+        {feed &&
+        <div className="grid-wrapper">
+          {this.handleGrid(feed.slice(0, 18), windowWidth)}
+        </div>}
 
         <div className='grid-loadMoreWrapper'>
-          <span className='grid-loadMore'>
-            Load more
-          </span>
-        </div>
-        <div className='footer-text'>
-          <span>this was simply made to demonstrate my css/html abilities</span>
-          <div>
-            <a href='http://www.greenheck.io/'>
-              <span>greenheck.io</span>
-            </a>
-            <a href='https://github.com/anthonyemg'>
-              <i className='fa fa-github fa-lg' />
-            </a>
-            <a href='https://www.linkedin.com/in/anthonygreenheck/'>
-              <i className='fa fa-linkedin fa-lg' />
-            </a>
-          </div>
+          <span className='grid-loadMore'>Load more</span>
         </div>
 
+        <div className='footer-text'>
+          <span>A demonstration of my css/html abilities</span>
+
+          <div>
+            <a href='http://www.greenheck.io/'>greenheck.io</a> 
+            <a className='fa fa-github fa-lg' href='https://github.com/anthonyemg' />
+            <a className='fa fa-linkedin fa-lg' href='https://www.linkedin.com/in/anthonygreenheck/' />
+          </div>
+        </div>
       </div>
     )
   }
+}
+
+Grid.propTypes = {
+  feed: PropTypes.array,
+  windowWidth: PropTypes.number,
+}
+
+Grid.defaultProps = {
+  feed: [],
+  windowWidth: 0,
 }
 
 export default Grid;
