@@ -23,8 +23,8 @@
     "webpack": "^2.5.1"
   },
   "scripts": {
-    "server": "nodemon src/server/server.js",
-    "start": "webpack -d --w"
+    "start": "nodemon src/server/server.js",
+    "watch": "webpack -d --w"
   },
   "author": "Anthony Greenheck"
 }
