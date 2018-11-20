@@ -10,12 +10,11 @@ class Container extends React.Component {
 
   constructor(props) {
     super(props);
+
     this.state = {
-      searchUsername: 'tonygreenheck',
       windowHeight: 0,
       windowWidth: 0,
     };
-    this.handleResize = this.handleResize.bind(this);
   }
 
   handleResize() {
@@ -30,23 +29,14 @@ class Container extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener('resize', this.handleResize);
+    window.addEventListener('resize', () => this.handleResize());
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.handleResize);
-  }
-
-  handleUserChange(e) {
-    this.setState({
-      searchUsername: e.target.value
-    })
+    window.removeEventListener('resize', () => this.handleResize());
   }
 
   render() {
-    const {
-      searchUsername,
-    } = this.state;
     const {
       feed,
       user,
@@ -54,12 +44,7 @@ class Container extends React.Component {
 
     return (
       <div className='container'>
-
-        <SearchBar
-          handleKeyPress={() => this.handleKeyPress()}
-          handleUserChange={() => this.handleUserChange()}
-          searchUsername={searchUsername}
-        />
+        <SearchBar />
 
         <UserInfo user={user} />
 

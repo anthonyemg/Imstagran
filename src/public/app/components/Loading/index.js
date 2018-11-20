@@ -7,7 +7,7 @@ class Loading extends Component {
   
   render() {
     return (
-      <div style={{ color: 'black'}}>
+      <div className="loading">
         <i className="fa fa-instagram fa-2x" />
       </div>
     )
