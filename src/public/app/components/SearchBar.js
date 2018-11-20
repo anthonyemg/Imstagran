@@ -8,10 +8,6 @@ class SearchBar extends PureComponent {
       <div className='search-bar-container'>
         <div className='search-bar'>
 
-          <div className='search-bar-hamburger'>
-            <i className='fa fa-bars fa-2x' />
-          </div>
-
           <div className='search-bar-title'>
             <a className='fa fa-instagram fa-2x' href='https://github.com/anthonyemg/Imstagran' />
             <div className='search-bar-separator'/>

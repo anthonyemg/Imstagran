@@ -90,16 +90,6 @@ body {
   text-decoration: none;
 }
 
-/*mobile*/
-.search-bar-hamburger {
-  position: fixed;
-  top: 8px;
-  left: 20px;
-  cursor: pointer;
-  display: none;
-  -webkit-text-stroke: 3px rgb(255,255,255);
-}
-
 .search-bar-input {
   align-items: center;
   background-color: rgb(250,250,250);
@@ -433,10 +423,6 @@ body {
     flex-direction: column;
   }
 
-  .searchBar-hamburger {
-    display: block;
-  }
-
   .searchBar-buttons {
     display: none;
   }
@@ -511,5 +497,10 @@ body {
   .mobileFooter {
     display: flex;
   }
+}
 
+@media(max-width: 580px) {
+  .search-bar-input {
+    display: none;
+  }
 }
