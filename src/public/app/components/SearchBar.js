@@ -1,49 +1,31 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react';
 
-class SearchBar extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+class SearchBar extends PureComponent {
   render() {
-    const {
-      handleKeyPress,
-      handleUserChange,
-      searchUsername,
-    } = this.props;
+    const title = "Currently disabled due to API changes..";
 
     return (
-      <div className='searchBar-container'>
+      <div className='search-bar-container'>
+        <div className='search-bar'>
 
-        <div className='searchBar'>
-
-          <div className='searchBar-hamburger'>
+          <div className='search-bar-hamburger'>
             <i className='fa fa-bars fa-2x' />
           </div>
 
-          <div className='searchBar-titleWrapper'>
-            <div className='searchBar-title'>
-              <i className='fa fa-instagram fa-2x' />
-              <span>imstagran</span>
-            </div>
+          <div className='search-bar-title'>
+            <a className='fa fa-instagram fa-2x' href='https://github.com/anthonyemg/Imstagran' />
+            <div className='search-bar-separator'/>
+            <a href='https://github.com/anthonyemg/Imstagran'>Imstagran</a>
           </div>
 
-          <input
-            onChange={handleUserChange}
-            onKeyPress={handleKeyPress}
-            placeholder='Search'
-            type='text'
-            value={searchUsername}
-          />
+          <div className='search-bar-input' title={title}>
+            <i className='fa fa-search' />
+            <span>Search</span>
+          </div>
 
-          <div className='searchBar-buttons'>
-            <button>Get the app</button>
-            <div className='searchBar-buttonsSignUpLogIn'>
-              <span>Sign up</span>
-              <span style={{ color: 'rgb(199,199,199)', margin: '0px 7px' }}>|</span>
-              <span>Log in</span>
-            </div>
+          <div className='search-bar-buttons'>
+            <button title={title}>Log In</button>
+            <span title={title}>Sign Up</span>
           </div>
 
         </div>
@@ -51,18 +33,5 @@ class SearchBar extends Component {
     )
   }
 }
-
-SearchBar.propTypes = {
-  searchUsername: PropTypes.string,
-  handleKeyPress: PropTypes.func,
-  handleUserChange: PropTypes.func,
-}
-
-SearchBar.defaultProps = {
-  searchUsername: '',
-  handleKeyPress: () => {},
-  handleUserChange: () => {},
-}
-
 
 export default SearchBar;
