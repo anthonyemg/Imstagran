@@ -140,7 +140,7 @@ body {
   margin-left: 15px;
 }
 
-.userInfo {
+.user-info {
   color: rgb(35,35,35);
   display: flex;
   flex-direction: row;
@@ -151,7 +151,7 @@ body {
   width: 96vw;
 }
 
-.userInfo-imageWrapper {
+.user-info-imageWrapper {
   width: 30vw;
   display: flex;
   justify-content: center;
@@ -159,25 +159,38 @@ body {
   margin-right: 30px;
 }
 
-.userInfo-image {
+.user-info-image {
   border-radius: 76px;
 }
 
-.userInfo-textUsername {
+.user-info-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  cursor: default;
+}
+
+.user-info-text-username {
   display: flex;
   flex-direction: row;
   align-items: center;
   cursor: default;
 }
 
-.userInfo-textUsername span {
+.user-info-text-username :first-child  {
+  font-size: 31px;
+  font-weight: 100;
+  margin-right: 20px;
+}
+
+.user-info-text-username :last-child {
   margin-right: 10px;
-  width: 123px;
+  width: 64px;
   border-radius: 3px;
   background-color: rgb(25,145,244);
   color: rgb(255,255,255);
   border: none;
-  height: 28px;
+  height: 30px;
   cursor: pointer;
   font-size: 14px;
   text-align: center;
@@ -185,74 +198,47 @@ body {
   line-height: 28px;
 }
 
-.userInfo-username {
-  font-size: 31px;
-  font-weight: 100;
-  margin-right: 20px;
-}
-
-.userInfo-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  cursor: default;
-}
-
-.userinfo-textStats {
+.user-info-textStats {
   display: flex;
   flex-direction: row;
 }
 
-.userinfo-textStats div {
+.user-info-textStats div {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-.userinfo-name span {
+.user-info-bio {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-info-bio span {
   font-weight: 500;
 }
 
-
-/* .userinfo-textStatsNumbers {
-  margin-right: 5px;
-  font-weight: 500;
-  font-size: 17px;
-} */
-.userinfo-textStats div span {
+.user-info-textStats div span {
   margin-right: 35px;
 }
 
-.userinfo-textStats div span:first-child {
+.user-info-textStats div span:first-child {
   font-size: 17px;
   font-weight: 500;
   margin-right: 5px;
 }
-
-/* .userinfo-textStatsNumbersSubtext {
-  margin-right: 35px;
-} */
-
-/** {box-sizing: border-box;}*/
-/*
-.grid-wrapper {
-  margin: 0 auto;
-  height: 500px;
-}
-*/
 
 .grid {
   color: black;
   padding-bottom: 14px;
 }
 
-.grid-wrapper{
+.grid-wrapper {
   display: grid;
   grid-template-columns: repeat(3, 30vw);
   grid-template-rows: repeat(5, 30vw);
   grid-gap: 28px;
-  /*margin: 0 auto;*/
   min-width: 300px;
 }
 
@@ -285,37 +271,36 @@ body {
   line-height: 34px;
 }
 
-.userInfoMobile {
+.user-info-mobile {
   width: 100%;
   color: rgb(35,35,35);
   display: none;
   cursor: default;
 }
 
-.userInfoMobile-top {
-  height: 40px;
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding-left: 32px;
+.user-info-mobile-top {
   border-bottom: 1px solid #efefef;
+  display: flex;
+  flex-direction: column;
+  height: 40px;
   margin-bottom: 12px;
+  padding-left: 32px;
+  width: 100%;
 }
 
-.userInfoMobile-fullName {
+.user-info-mobile-fullName {
   margin-right: 5px;
   font-weight: 500;
   font-size: 14px;
   letter-spacing: 0.6px;
 }
 
-.userInfoMobile-comment {
+.user-info-mobile-comment {
   font-weight: 400;
   font-size: 14px;
 }
 
-.userInfoMobile-bottom {
+.user-info-mobile-bottom {
   display: grid;
   grid-template-columns: repeat(3, 33vw);
   grid-template-rows: repeat(1, 35px);
@@ -323,25 +308,25 @@ body {
   margin-bottom: 12px;
 }
 
-.userInfoMobile-bottomStats {
+.user-info-mobile-bottomStats {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.userInfoMobile-bottomStatsNumbers {
+.user-info-mobile-bottomStatsNumbers {
   font-size: 14px;
   font-weight: 500;
 }
 
-.userInfoMobile-bottomSubtext {
+.user-info-mobile-bottomSubtext {
   font-weight: 400;
   font-size: 14px;
   color: rgb(153,153,153);
 }
 
-.userInfoMobile-bottomSubtext:hover {
+.user-info-mobile-bottomSubtext:hover {
   color: rgb(35,35,35);
 }
 
@@ -359,7 +344,7 @@ body {
   text-decoration: none;
 }
 
-.mobileFooter {
+.mobile-footer {
   display: none;
   flex-direction: row;
   align-items: center;
@@ -372,7 +357,7 @@ body {
   border-top: 1px solid rgba(0,0,0,.0975);
 }
 
-.mobileFooter-title {
+.mobile-footer-title {
   padding-left: 20px;
   font-family: 'Leckerli One', cursive;
   font-size: 28px;
@@ -380,12 +365,12 @@ body {
   cursor: default;
 }
 
-.mobileFooter-buttonsSignUpLogIn {
+.mobile-footer-buttonsSignUpLogIn {
   padding-right: 20px;
   cursor: pointer;
 }
 
-.mobileFooter-buttonsSignUpLogIn span {
+.mobile-footer-buttonsSignUpLogIn span {
   color: rgb(25,145,244);
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
@@ -403,10 +388,10 @@ body {
     grid-template-columns: repeat(3, 293px);
     grid-template-rows: repeat(5, 293px);
   }
-  .userInfo-imageWrapper {
+  .user-info-imageWrapper {
     width: 293px;
   }
-  .userInfo {
+  .user-info {
     width: 935px;
   }
 
@@ -414,41 +399,19 @@ body {
 
 @media(max-width: 735px) {
 
-  .container {
-    top: 46px;
-  }
-
-  .searchBar-container {
-    height: 46px;
+  .user-info-mobile {
     display: block;
   }
 
-  .searchBar {
-    justify-content: center;
-    flex-direction: column;
-  }
-
-  .searchBar-buttons {
+  .user-info-textStats {
     display: none;
   }
 
-  .searchBar-title {
+  .user-info-bio {
     display: none;
   }
 
-  .userInfoMobile {
-    display: block;
-  }
-
-  .userinfo-textStats {
-    display: none;
-  }
-
-  .userinfo-name {
-    display: none;
-  }
-
-  .userInfo-textUsername {
+  .user-info-text-username {
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-around;
@@ -456,27 +419,27 @@ body {
     margin-top: -6px;
   }
 
-  .userInfo-username {
+  .user-info-text-username :first-child {
     margin: 0px;
     font-size: 22px;
     font-weight: 400;
   }
 
-  .userInfo-textUsername span {
+  .user-info-text-username span {
     width: 240px;
   }
 
-  .userInfo {
+  .user-info {
     height: 77px;
     margin-top: 23px;
     margin-bottom: 30px;
   }
 
-  .userInfo-image {
+  .user-info-image {
     height: 77px;
   }
 
-  .userInfo-imageWrapper {
+  .user-info-imageWrapper {
     width: 77px;
   }
 
@@ -499,7 +462,7 @@ body {
     display: none;
   }
 
-  .mobileFooter {
+  .mobile-footer {
     display: flex;
   }
 }

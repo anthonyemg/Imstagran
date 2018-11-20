@@ -14,21 +14,21 @@ class UserInfo extends PureComponent {
     } = this.props;
 
     return (
-      <div className='userInfo'>
-        <div className='userInfo-imageWrapper'>
+      <div className='user-info'>
+        <div className='user-info-imageWrapper'>
           <img
-            className='userInfo-image'
+            className='user-info-image'
             src={profile_picture}
           />
         </div>
 
-        <div className='userInfo-text'>
-          <div className='userInfo-textUsername' >
-            <div>{username}</div>
+        <div className='user-info-text'>
+          <div className='user-info-text-username' >
+            <span>{username}</span>
             <span>Follow</span>
           </div>
 
-          <div className='userinfo-textStats'>
+          <div className='user-info-textStats'>
             <div>
               <span>{counts.media}</span>
               <span>posts</span>
@@ -45,7 +45,7 @@ class UserInfo extends PureComponent {
             </div>
           </div>
 
-          <div className='userinfo-name'>
+          <div className='user-info-bio'>
             <span>{full_name}</span>
             <spam>{bio}</spam>
           </div>
