@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Container from './Container';
-import Loading from './Loading';
+import Container from '../Container';
+import { Loading } from '../../components';
 
 class App extends Component {
   constructor(props) {
@@ -34,6 +34,9 @@ class App extends Component {
       isLoading,
       user,
     } = this.state;
+
+    console.log('loading', Container)
+    // console.log('grid', Grid)
 
     return (
       <div>

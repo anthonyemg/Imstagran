@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
+import {
+  Grid,
+  MobileFooter,
+  SearchBar,
+  UserInfo,
+  UserInfoMobile
+} from '../../components';
 
-import Grid from './Grid';
-import MobileFooter from './MobileFooter';
-import SearchBar from './SearchBar'
-import UserInfo from './UserInfo';
-import UserInfoMobile from './UserInfoMobile'
-
-class Container extends React.Component {
+class Container extends Component {
 
   constructor(props) {
     super(props);
