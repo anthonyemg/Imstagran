@@ -35,9 +35,6 @@ class App extends Component {
       user,
     } = this.state;
 
-    console.log('loading', Container)
-    // console.log('grid', Grid)
-
     return (
       <div>
         {isLoading ?
