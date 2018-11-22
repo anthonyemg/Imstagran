@@ -6,11 +6,15 @@ class Grid extends Component {
     super(props);
   }
 
+  // handleImageClick(idx) {
+  //   console.log('handleImageClick', idx);
+  // }
+
   handleGrid(feed, windowWidth) {
     const imageSize = windowWidth < 990 ? '33vw' : '293px';
 
     return (
-      feed.map(function(img, idx) {
+      feed.map((img, idx) => {
         const imageWidth = img.images.standard_resolution.width;
         const imageHeight = img.images.standard_resolution.height;
         const isWidthGreaterThanHeight = imageWidth > imageHeight;
@@ -18,7 +22,11 @@ class Grid extends Component {
         const height = isWidthGreaterThanHeight ? imageSize: 'auto';
 
         return (
-          <div className='grid-component' key = {idx}>
+          <div
+            className='grid-component'
+            key ={idx}
+            onClick={() => this.props.handleOpenCarousel(idx)}
+          >
             <img
               src={img.images.standard_resolution.url}
               style={{ width: width, height: height }}

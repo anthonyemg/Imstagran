@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import {
+  Carousel,
   Grid,
   MobileFooter,
   SearchBar,
   UserInfo,
-  UserInfoMobile
+  UserInfoMobile,
 } from '../../components';
 
 class Container extends Component {
@@ -13,6 +14,8 @@ class Container extends Component {
     super(props);
 
     this.state = {
+      displayCarousel: false,
+      selectedPicture: null,
       windowHeight: 0,
       windowWidth: 0,
     };
@@ -23,6 +26,14 @@ class Container extends Component {
       windowWidth: window.innerWidth,
       windowHeight: window.innerHeight
     });
+  }
+
+  handleOpenCarousel(idx) {
+    this.setState({ displayCarousel: true, selectedPicture: idx });
+  }
+
+  handleCloseCarousel() {
+    this.setState({ displayCarousel: false });
   }
 
   componentWillMount() {
@@ -42,6 +53,7 @@ class Container extends Component {
       feed,
       user,
     } = this.props;
+    const { displayCarousel, selectedPicture, windowWidth} = this.state;
 
     return (
       <div className='container'>
@@ -53,10 +65,20 @@ class Container extends Component {
 
         <Grid
           feed={feed}
-          windowWidth={this.state.windowWidth}
+          handleOpenCarousel={(idx) => this.handleOpenCarousel(idx)}
+          windowWidth={windowWidth}
         />
 
         <MobileFooter />
+
+        {displayCarousel &&
+        <Carousel
+          feed={feed}
+          handleCloseCarousel={() => this.handleCloseCarousel()}
+          selectedPicture={selectedPicture}
+          username={user.username}
+          userProfilePicture={user.profile_picture}
+        />}
       </div>
     )
   }

@@ -1,0 +1,96 @@
+.carousel {
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+  background: rgba(0,0,0,.75);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .carousel-wrapper {
+    width: 935px;
+    height: 600px;
+    background: #FFF;
+    display: flex;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  .carousel-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 24px;
+
+    .carousel-content-user {
+      height: 58px;
+      border-bottom: 1px solid @igBorder;
+      display: flex;
+      flex-direction: row;
+      font-size: 14px;
+
+      .carousel-content-user-details {
+        display: flex;
+        flex-direction: column;
+        height: 40px;
+        justify-content: center;
+        margin-left: 12px;
+
+        div:first-child {
+          font-weight: 600;
+          height: 18px;
+
+          span {
+            color: @igBlue;
+            margin-left: 0.5em;
+          }
+        }
+
+        div:last-child {
+          align-items: center;
+          display: flex;
+          font-size: 12px;
+          height: 18px;
+        }
+      }
+
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+      }
+    }
+
+    .carousel-content-caption {
+      display: flex;
+      flex-grow: 1;
+      font-size: 14px;
+      padding: 12px 0px;
+
+      span:first-child {
+        font-weight: 600;
+        margin-right: 0.5em;
+      }
+    }
+
+    .carousel-content-buttons  {
+      border-top: 1px solid @igBorder;
+      height: 40px;
+    }
+
+    .carousel-content-date {
+      border-top: 1px solid @igBorder;
+      height: 40px;
+    }
+
+    .carousel-content-footer {
+      border-top: 1px solid @igBorder;
+      height: 40px;
+    }
+  }
+}
