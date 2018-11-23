@@ -1,20 +1,20 @@
 .carousel {
-  height: 100vh;
-  width: 100vw;
-  z-index: 1;
+  align-items: center;
   background: rgba(0,0,0,.75);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  left: 0;
   position: fixed;
   top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100vw;
+  z-index: 1;
 
   .carousel-wrapper {
-    width: 935px;
-    height: 600px;
-    background: #FFF;
+    background: @igWhite;
     display: flex;
+    height: 600px;
+    width: 935px;
 
     img {
       height: 100%;
@@ -22,17 +22,18 @@
   }
 
   .carousel-content {
-    width: 100%;
     display: flex;
     flex-direction: column;
     padding: 20px 24px;
+    width: 100%;
 
     .carousel-content-user {
-      height: 58px;
       border-bottom: 1px solid @igBorder;
+      cursor: not-allowed;
       display: flex;
       flex-direction: row;
       font-size: 14px;
+      height: 58px;
 
       .carousel-content-user-details {
         display: flex;
@@ -60,9 +61,9 @@
       }
 
       img {
-        width: 40px;
-        height: 40px;
         border-radius: 20px;
+        height: 40px;
+        width: 40px;
       }
     }
 
@@ -72,25 +73,75 @@
       font-size: 14px;
       padding: 12px 0px;
 
-      span:first-child {
+        cursor: not-allowed;
         font-weight: 600;
         margin-right: 0.5em;
+      span:first-child {
       }
     }
 
     .carousel-content-buttons  {
+      align-items: center;
       border-top: 1px solid @igBorder;
+      display: flex;
       height: 40px;
+      justify-content: space-between;
+
+      i {
+        -webkit-text-stroke: 1px @igWhite;
+        cursor: not-allowed;
+        font-size: 28px;
+      }
+
+      div {
+        align-items: center;
+        display: flex;
+        height: 40px;
+        justify-content: space-between;
+        width: 120px;
+      }
+
+      &:last-child {
+        margin-left: auto;
+      }
     }
 
     .carousel-content-date {
-      border-top: 1px solid @igBorder;
-      height: 40px;
+      align-items: center;
+      color: @igGrey;
+      cursor: not-allowed;
+      display: flex;
+      font-size: 10px;
+      height: 19px;
+
+      span:first-child {
+        margin-right: 0.5em;
+      }
     }
 
     .carousel-content-footer {
+      align-items: flex-end;
       border-top: 1px solid @igBorder;
-      height: 40px;
+      display: flex;
+      font-size: 14px;
+      height: 35px;
+      justify-content: space-between;
+      margin-top: 4px;
+
+      div {
+        span:first-child {
+          color: @igLinkBlue;
+          cursor: not-allowed;
+        }
+
+        span {
+          color: @igGrey;
+        }
+      }
+
+      i {
+        cursor: not-allowed;
+      }
     }
   }
 }

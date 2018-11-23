@@ -44,19 +44,25 @@ class Carousel extends Component {
             </div>
 
             <div className="carousel-content-buttons">
-              <i className='far fa-heart' />
-              <i class="material-icons">chat_bubble_outline</i>
-              <i className='far fa-upload' />
+              <div>
+                <i className='fa fa-heart-o' />
+                <i className="material-icons">chat_bubble_outline</i>
+                <i className="material-icons">share</i>
+              </div>
               <i className="material-icons">bookmark_border</i>
             </div>
 
-            <div className="carousel-content-Date">
-              {this.monthNames[date.getMonth()]}
-              {date.getDate()}
+            <div className="carousel-content-date">
+              <span>{this.monthNames[date.getMonth()].toUpperCase()}</span>
+              <spam>{date.getDate()}</spam>
             </div>
 
             <div className="carousel-content-footer">
-              Log in to like or comment.
+              <div>
+                <span>Log in</span>
+                <span> to like or comment.</span>
+              </div>
+              <i className="material-icons">more_horiz</i>
             </div>
           </div>
 
