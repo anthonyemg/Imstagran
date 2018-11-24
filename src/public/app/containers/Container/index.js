@@ -70,7 +70,11 @@ class Container extends Component {
       feed,
       user,
     } = this.props;
-    const { displayCarousel, selectedPictureIndex, windowWidth} = this.state;
+    const {
+      displayCarousel,
+      selectedPictureIndex,
+      windowWidth
+    } = this.state;
 
     return (
       <div className='container'>

@@ -59,58 +59,106 @@ class Carousel extends Component {
             </i>
           </div>
 
-          <div className="carousel-image" onClick={(e) => this.handleWrapperClick(e)}>
-            <img src={feed[selectedPictureIndex].images.standard_resolution.url} /> 
-          </div>
+          {/* desktop */}
+          <div className="carousel-container carousel-container-desktop">
+          
+            <div className="carousel-image" onClick={(e) => this.handleWrapperClick(e)}>
+              <img src={feed[selectedPictureIndex].images.standard_resolution.url} /> 
+            </div>
 
-          <div className="carousel-content" onClick={(e) => this.handleWrapperClick(e)}>
-            <div className="carousel-content-user">
-              <img src={userProfilePicture} />
-              <div className="carousel-content-user-details">
-                <div>
-                  {`${username}`}
-                  <span>Follow</span>
+            <div className="carousel-content" onClick={(e) => this.handleWrapperClick(e)}>
+              <div className="carousel-content-user">
+                <img src={userProfilePicture} />
+                <div className="carousel-content-user-details">
+                  <div>
+                    {`${username}`}
+                    <span>Follow</span>
+                  </div>
+                  <div>{feed[selectedPictureIndex].location.name}</div>
                 </div>
-                <div>{feed[selectedPictureIndex].location.name}</div>
+              </div>
+
+              <div className="carousel-content-caption">
+                <span>{`${_.get(feed[selectedPictureIndex].caption, 'from.username', '')}`}</span>
+                <span>{`${_.get(feed[selectedPictureIndex].caption, 'text', '')}`}</span>
+              </div>
+
+              <div className="carousel-content-buttons">
+                <div>
+                  <i className='fa fa-heart-o' />
+                  <i className="material-icons">chat_bubble_outline</i>
+                  <i className="material-icons">share</i>
+                </div>
+                <i className="material-icons">bookmark_border</i>
+              </div>
+
+              <div className="carousel-content-date">
+                <span>{this.monthNames[date.getMonth()].toUpperCase()}</span>
+                <spam>{date.getDate()}</spam>
+              </div>
+
+              <div className="carousel-content-footer">
+                <div>
+                  <span>Log in</span>
+                  <span> to like or comment.</span>
+                </div>
+                <i className="material-icons">more_horiz</i>
               </div>
             </div>
 
-            <div className="carousel-content-caption">
-              <span>{`${_.get(feed[selectedPictureIndex].caption, 'from.username', '')}`}</span>
-              <span>{`${_.get(feed[selectedPictureIndex].caption, 'text', '')}`}</span>
-            </div>
-
-            <div className="carousel-content-buttons">
-              <div>
-                <i className='fa fa-heart-o' />
-                <i className="material-icons">chat_bubble_outline</i>
-                <i className="material-icons">share</i>
-              </div>
-              <i className="material-icons">bookmark_border</i>
-            </div>
-
-            <div className="carousel-content-date">
-              <span>{this.monthNames[date.getMonth()].toUpperCase()}</span>
-              <spam>{date.getDate()}</spam>
-            </div>
-
-            <div className="carousel-content-footer">
-              <div>
-                <span>Log in</span>
-                <span> to like or comment.</span>
-              </div>
-              <i className="material-icons">more_horiz</i>
-            </div>
           </div>
+          {/* desktop end */}
+
+          {/* mobile */}
+          <div className="carousel-container carousel-container-mobile">
+
+            <div className="carousel-content" onClick={(e) => this.handleWrapperClick(e)}>
+              <div className="carousel-content-user">
+                <img src={userProfilePicture} />
+                <div className="carousel-content-user-details">
+                  <div>
+                    {`${username}`}
+                    <span>Follow</span>
+                  </div>
+                  <div>{feed[selectedPictureIndex].location.name}</div>
+                </div>
+              </div>
+
+              <div className="carousel-image" onClick={(e) => this.handleWrapperClick(e)}>
+                <img src={feed[selectedPictureIndex].images.standard_resolution.url} /> 
+              </div>
+
+              <div className="carousel-content-buttons">
+                <div>
+                  <i className='fa fa-heart-o' />
+                  <i className="material-icons">chat_bubble_outline</i>
+                  <i className="material-icons">share</i>
+                </div>
+                <i className="material-icons">bookmark_border</i>
+              </div>
+
+              <div className="carousel-content-caption">
+                <span>{`${_.get(feed[selectedPictureIndex].caption, 'from.username', '')}`}</span>
+                <span>{`${_.get(feed[selectedPictureIndex].caption, 'text', '')}`}</span>
+              </div>
+
+              <div className="carousel-content-date">
+                <span>{this.monthNames[date.getMonth()].toUpperCase()}</span>
+                <spam>{date.getDate()}</spam>
+              </div>
+            </div>
+
+          </div>
+          {/* mobile end */}
 
           <div className="carousel-button">
-            <i
-              className="material-icons"
-              onClick={(e) => handleCarouselButtonClick(e, 'right')}
-            >
-              {selectedPictureIndex !== 17 ? 'chevron_right' : ''}
-            </i>
-          </div>
+              <i
+                className="material-icons"
+                onClick={(e) => handleCarouselButtonClick(e, 'right')}
+              >
+                {selectedPictureIndex !== 17 ? 'chevron_right' : ''}
+              </i>
+            </div>
 
         </div>
       </div>

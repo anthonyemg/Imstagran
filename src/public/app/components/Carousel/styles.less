@@ -32,139 +32,154 @@
       }
     }
 
-    .carousel-image {
-      user-select: none; 
-      max-width: 600px;
-
-      img {
-        height: 100%;
-        width: 100%;
-      }
-    }
-  
-    .carousel-content {
-      background: @igWhite;
+    .carousel-container {
       display: flex;
-      flex-direction: column;
-      padding: 20px 24px;
-      width: 335px;
 
-      .carousel-content-user {
-        border-bottom: 1px solid @igBorder;
-        cursor: not-allowed;
+      .carousel-image {
+        user-select: none; 
+        max-width: 600px;
+
+        img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+    
+      .carousel-content {
+        background: @igWhite;
         display: flex;
-        flex-direction: row;
-        font-size: 14px;
-        height: 58px;
-  
-        .carousel-content-user-details {
+        flex-direction: column;
+        padding: 20px 0px;
+        width: 335px;
+
+        .carousel-content-user {
+          border-bottom: 1px solid @igBorder;
+          cursor: not-allowed;
           display: flex;
-          flex-direction: column;
-          height: 40px;
-          justify-content: center;
-          margin-left: 12px;
-  
-          div:first-child {
-            font-weight: 600;
-            height: 18px;
-  
-            span {
-              color: @igBlue;
-              margin-left: 0.5em;
+          flex-direction: row;
+          font-size: 14px;
+          height: 58px;
+          margin: 0px 24px;
+    
+          .carousel-content-user-details {
+            display: flex;
+            flex-direction: column;
+            height: 40px;
+            justify-content: center;
+            margin-left: 12px;
+    
+            div:first-child {
+              font-weight: 600;
+              height: 18px;
+    
+              span {
+                color: @igBlue;
+                margin-left: 0.5em;
+              }
+            }
+    
+            div:last-child {
+              align-items: center;
+              display: flex;
+              font-size: 12px;
+              height: 18px;
             }
           }
-  
-          div:last-child {
-            align-items: center;
-            display: flex;
-            font-size: 12px;
-            height: 18px;
+    
+          img {
+            border-radius: 20px;
+            height: 40px;
+            width: 40px;
           }
         }
-  
-        img {
-          border-radius: 20px;
-          height: 40px;
-          width: 40px;
-        }
-      }
-  
-      .carousel-content-caption {
-        display: flex;
-        flex-grow: 1;
-        font-size: 14px;
-        padding: 12px 0px;
+    
+        .carousel-content-caption {
+          display: flex;
+          flex-grow: 1;
+          font-size: 14px;
+          margin: 12px 24px;
 
-        span:first-child {
-          cursor: not-allowed;
-          font-weight: 600;
-          margin-right: 0.5em;
+          span:first-child {
+            cursor: not-allowed;
+            font-weight: 600;
+            margin-right: 0.5em;
+          }
         }
-      }
-  
-      .carousel-content-buttons  {
-        align-items: center;
-        border-top: 1px solid @igBorder;
-        display: flex;
-        height: 40px;
-        justify-content: space-between;
-  
-        i {
-          -webkit-text-stroke: 1px @igWhite;
-          cursor: not-allowed;
-          font-size: 28px;
-        }
-  
-        div {
+    
+        .carousel-content-buttons  {
           align-items: center;
+          border-top: 1px solid @igBorder;
           display: flex;
           height: 40px;
           justify-content: space-between;
-          width: 120px;
+          margin: 0px 24px;
+    
+          i {
+            -webkit-text-stroke: 1px @igWhite;
+            cursor: not-allowed;
+            font-size: 28px;
+          }
+    
+          div {
+            align-items: center;
+            display: flex;
+            height: 40px;
+            justify-content: space-between;
+            width: 120px;
+          }
+    
+          &:last-child {
+            margin-left: auto;
+          }
         }
-  
-        &:last-child {
-          margin-left: auto;
-        }
-      }
-  
-      .carousel-content-date {
-        align-items: center;
-        color: @igGrey;
-        cursor: not-allowed;
-        display: flex;
-        font-size: 10px;
-        height: 19px;
-  
-        span:first-child {
-          margin-right: 0.5em;
-        }
-      }
-  
-      .carousel-content-footer {
-        align-items: flex-end;
-        border-top: 1px solid @igBorder;
-        display: flex;
-        font-size: 14px;
-        height: 35px;
-        justify-content: space-between;
-        margin-top: 4px;
-  
-        div {
+    
+        .carousel-content-date {
+          align-items: center;
+          color: @igGrey;
+          cursor: not-allowed;
+          display: flex;
+          font-size: 10px;
+          height: 19px;
+          margin: 0px 24px;
+    
           span:first-child {
-            color: @igLinkBlue;
+            margin-right: 0.5em;
+          }
+        }
+    
+        .carousel-content-footer {
+          align-items: flex-end;
+          border-top: 1px solid @igBorder;
+          display: flex;
+          font-size: 14px;
+          height: 35px;
+          justify-content: space-between;
+          margin: 4px 24px 0px 24px;
+    
+          div {
+            span:first-child {
+              color: @igLinkBlue;
+              cursor: not-allowed;
+            }
+    
+            span {
+              color: @igGrey;
+            }
+          }
+    
+          i {
             cursor: not-allowed;
           }
-  
-          span {
-            color: @igGrey;
-          }
-        }
-  
-        i {
-          cursor: not-allowed;
         }
       }
+    }
+
+    // .carousel-container-desktop {
+    //   display: flex;
+    // }
+
+    .carousel-container-mobile {
+      display: none;
     }
   }
 }

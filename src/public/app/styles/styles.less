@@ -119,6 +119,53 @@ body {
   .mobile-footer {
     display: flex;
   }
+
+  .carousel
+  .carousel-wrapper {
+    .carousel-container-desktop {
+      display: none;
+    }
+
+    .carousel-container-mobile {
+      display: flex;
+
+      .carousel-content {
+        width: 100%;
+        padding: 0px;
+
+        .carousel-content-user {
+          height: 28px;
+          display: flex;
+          align-items: center;
+          padding: 16px 24px;
+          border: none;
+          margin: 0px;
+
+          img {
+            height: 30px;
+            width: 30px;
+          }
+
+          .carousel-content-user-details {
+            height: 36px;
+          }
+        }
+
+        .carousel-content-buttons {
+          border: none;
+          margin: 0px 16px;
+        }
+
+        .carousel-content-caption {
+          margin: 12px 16px;
+        }
+
+        .carousel-content-date {
+          margin: 0px 16px 4px 16px;          
+        }
+      }
+    }
+  }
 }
 
 @media(max-width: 580px) {
