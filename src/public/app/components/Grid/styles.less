@@ -16,6 +16,40 @@
     display: flex;
     justify-content: center;
     overflow: hidden;
+    position: relative;
+  }
+
+  .grid-component-hover {
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: @igWhite;
+    display: flex;
+    display: none;
+    height: 100%;
+    justify-content: center;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    .grid-component-hover-content {
+      display: flex;
+      justify-content: space-between;
+      width: 120px; 
+
+      i {
+        font-size: 22px;
+        margin-right: 5px;
+      }
+
+      div {
+        display: flex;
+        width: 40px;
+      }
+    }
   }
 
   .grid-loadMoreWrapper {

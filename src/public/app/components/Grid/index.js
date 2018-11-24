@@ -27,6 +27,21 @@ class Grid extends Component {
               src={img.images.standard_resolution.url}
               style={{ width: width, height: height }}
             /> 
+            <div
+              className='grid-component-hover'
+            >
+              <div className='grid-component-hover-content'> 
+                <div>
+                  <i className='fa fa-heart' />
+                  <spam>{img.likes.count}</spam>
+                </div>
+
+                <div>
+                  <i className="material-icons">chat_bubble</i>
+                  <spam>{img.comments.count}</spam>
+                </div>
+              </div>
+            </div>
           </div>
         )
       })
