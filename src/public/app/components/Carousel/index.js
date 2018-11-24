@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
 
 class Carousel extends Component {
@@ -6,6 +7,8 @@ class Carousel extends Component {
     super(props);
 
     this.monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec" ];
+
+    this.handleArrowClick = this.handleArrowClick.bind(this);
   }
 
   handleWrapperClick(e) {
@@ -13,15 +16,20 @@ class Carousel extends Component {
   }
 
   handleArrowClick(e) {
-    e.key === 'ArrowLeft' && this.props.handleCarouselButtonClick('left');
-    e.key === 'ArrowRight' && this.props.handleCarouselButtonClick('right');
+    if (e.key === 'ArrowLeft') {
+      this.props.handleCarouselButtonClick(e, 'left');
+    }
+    if (e.key === 'ArrowRight') {
+      this.props.handleCarouselButtonClick(e, 'right');
+    }
   }
 
   componentDidMount() {
-    window.addEventListener('keydown', (e) => this.handleArrowClick(e));
+    window.addEventListener('keydown', this.handleArrowClick);
   }
+
   componentWillUnmount() {
-    window.removeEventListener('keydown', (e) => this.handleArrowClick(e));
+    window.removeEventListener('keydown', this.handleArrowClick);
   }
 
   render() {
@@ -33,7 +41,6 @@ class Carousel extends Component {
       username,
       userProfilePicture,
     } = this.props;
-
     const date = new Date(parseInt(feed[selectedPictureIndex].created_time) * 1000);
 
     return (
@@ -41,22 +48,22 @@ class Carousel extends Component {
         className="carousel"
         onClick={() => handleCloseCarousel()}
       >
-        <div className="carousel-wrapper" onClick={(e) => this.handleWrapperClick(e)}>
+        <div className="carousel-wrapper">
           
           <div className="carousel-button">
             <i
               className="material-icons"
-              onClick={() => handleCarouselButtonClick('left')}
+              onClick={(e) => handleCarouselButtonClick(e, 'left')}
             >
-              chevron_left
+              {selectedPictureIndex !== 0 ? 'chevron_left' : ''}
             </i>
           </div>
 
-          <div className="carousel-image">
+          <div className="carousel-image" onClick={(e) => this.handleWrapperClick(e)}>
             <img src={feed[selectedPictureIndex].images.standard_resolution.url} /> 
           </div>
 
-          <div className="carousel-content">
+          <div className="carousel-content" onClick={(e) => this.handleWrapperClick(e)}>
             <div className="carousel-content-user">
               <img src={userProfilePicture} />
               <div className="carousel-content-user-details">
@@ -99,9 +106,9 @@ class Carousel extends Component {
           <div className="carousel-button">
             <i
               className="material-icons"
-              onClick={() => handleCarouselButtonClick('right')}
+              onClick={(e) => handleCarouselButtonClick(e, 'right')}
             >
-              chevron_right
+              {selectedPictureIndex !== 17 ? 'chevron_right' : ''}
             </i>
           </div>
 
@@ -110,5 +117,23 @@ class Carousel extends Component {
     )
   }
 }
+
+Carousel.propTypes = {
+  feed: PropTypes.array,
+  handleCarouselButtonClick: PropTypes.func,
+  handleCloseCarousel: PropTypes.func,
+  selectedPictureIndex: PropTypes.number,
+  username: PropTypes.string,
+  userProfilePicture: PropTypes.string,
+};
+
+Carousel.defaultProps = {
+  feed: [],
+  handleCarouselButtonClick: () => {},
+  handleCloseCarousel: () => {},
+  selectedPictureIndex: 0,
+  username: '',
+  userProfilePicture: '',
+};
 
 export default Carousel;

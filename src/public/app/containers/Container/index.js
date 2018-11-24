@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   Carousel,
   Grid,
@@ -19,6 +20,8 @@ class Container extends Component {
       windowHeight: 0,
       windowWidth: 0,
     };
+
+    this.handleResize = this.handleResize.bind(this);
   }
 
   handleResize() {
@@ -36,15 +39,18 @@ class Container extends Component {
     this.setState({ displayCarousel: false });
   }
 
-  handleCarouselButtonClick(direction) {
+  handleCarouselButtonClick(e, direction) {
+    e.stopPropagation();
     const { selectedPictureIndex } = this.state;
-    let idx = direction === 'right' ? selectedPictureIndex + 1 : selectedPictureIndex - 1; 
+    const index = direction === 'right' ?
+      selectedPictureIndex + 1 :
+      selectedPictureIndex - 1;
 
-    if (idx < 0 || idx >= 18 ) {
-      idx = selectedPictureIndex;
+    if (index < 0 || index >= 18) {
+      return;
     }
 
-    this.setState({ selectedPictureIndex: idx });
+    this.setState({ selectedPictureIndex: index });
   }
 
   componentWillMount() {
@@ -52,11 +58,11 @@ class Container extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener('resize', () => this.handleResize());
+    window.addEventListener('resize', this.handleResize);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', () => this.handleResize());
+    window.removeEventListener('resize', this.handleResize);
   }
 
   render() {
@@ -85,7 +91,7 @@ class Container extends Component {
         {displayCarousel &&
         <Carousel
           feed={feed}
-          handleCarouselButtonClick={(direction) => this.handleCarouselButtonClick(direction)}
+          handleCarouselButtonClick={(e, direction) => this.handleCarouselButtonClick(e, direction)}
           handleCloseCarousel={() => this.handleCloseCarousel()}
           selectedPictureIndex={selectedPictureIndex}
           username={user.username}
@@ -95,5 +101,15 @@ class Container extends Component {
     )
   }
 }
+
+Container.propTypes = {
+  feed: PropTypes.array,
+  user: PropTypes.object,
+};
+
+Container.defaultProps = {
+  feed: [],
+  user: {},
+};
 
 export default Container;
