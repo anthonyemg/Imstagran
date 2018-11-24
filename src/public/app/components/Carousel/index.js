@@ -7,15 +7,21 @@ class Carousel extends Component {
     this.monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec" ];
   }
 
+  handleWrapperClick(e) {
+    e.stopPropagation();
+  }
+
   render() {
     const {
       feed,
+      handleCarouselButtonClick,
       handleCloseCarousel,
       selectedPicture,
       username,
       userProfilePicture,
     } = this.props;
-
+    
+    console.log('Carousel render', selectedPicture)
     const date = new Date(parseInt(feed[selectedPicture].created_time) * 1000);
 
     return (
@@ -23,8 +29,20 @@ class Carousel extends Component {
         className="carousel"
         onClick={() => handleCloseCarousel()}
       >
-        <div className="carousel-wrapper">
-          <img src={feed[selectedPicture].images.standard_resolution.url} /> 
+        <div className="carousel-wrapper" onClick={(e) => this.handleWrapperClick(e)}>
+          
+          <div className="carousel-button">
+            <i
+              className="material-icons"
+              onClick={() => handleCarouselButtonClick('left')}
+            >
+              chevron_left
+            </i>
+          </div>
+
+          <div className="carousel-image">
+            <img src={feed[selectedPicture].images.standard_resolution.url} /> 
+          </div>
 
           <div className="carousel-content">
             <div className="carousel-content-user">
@@ -64,6 +82,15 @@ class Carousel extends Component {
               </div>
               <i className="material-icons">more_horiz</i>
             </div>
+          </div>
+
+          <div className="carousel-button">
+            <i
+              className="material-icons"
+              onClick={() => handleCarouselButtonClick('right')}
+            >
+              chevron_right
+            </i>
           </div>
 
         </div>

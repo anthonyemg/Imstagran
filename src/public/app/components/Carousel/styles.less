@@ -11,136 +11,155 @@
   z-index: 1;
 
   .carousel-wrapper {
-    background: @igWhite;
+    margin: auto 0px;
     display: flex;
-    height: 600px;
-    width: 935px;
-
-    img {
-      height: 100%;
-    }
-  }
-
-  .carousel-content {
-    display: flex;
-    flex-direction: column;
-    padding: 20px 24px;
     width: 100%;
+    justify-content: center;
 
-    .carousel-content-user {
-      border-bottom: 1px solid @igBorder;
-      cursor: not-allowed;
-      display: flex;
-      flex-direction: row;
-      font-size: 14px;
-      height: 58px;
+    .carousel-button {
+      color: @igGrey;
+      margin: auto 0px;
 
-      .carousel-content-user-details {
+      i {
+        cursor: pointer;
         display: flex;
-        flex-direction: column;
-        height: 40px;
+        font-size: 50px;
         justify-content: center;
-        margin-left: 12px;
-
-        div:first-child {
-          font-weight: 600;
-          height: 18px;
-
-          span {
-            color: @igBlue;
-            margin-left: 0.5em;
-          }
-        }
-
-        div:last-child {
-          align-items: center;
-          display: flex;
-          font-size: 12px;
-          height: 18px;
-        }
-      }
-
-      img {
-        border-radius: 20px;
-        height: 40px;
         width: 40px;
       }
     }
 
-    .carousel-content-caption {
-      display: flex;
-      flex-grow: 1;
-      font-size: 14px;
-      padding: 12px 0px;
+    .carousel-image {
+      max-width: 600px;
 
-        cursor: not-allowed;
-        font-weight: 600;
-        margin-right: 0.5em;
-      span:first-child {
+      img {
+        height: 100%;
+        width: 100%;
       }
     }
-
-    .carousel-content-buttons  {
-      align-items: center;
-      border-top: 1px solid @igBorder;
+  
+    .carousel-content {
+      background: @igWhite;
       display: flex;
-      height: 40px;
-      justify-content: space-between;
+      flex-direction: column;
+      padding: 20px 24px;
+      width: 335px;
 
-      i {
-        -webkit-text-stroke: 1px @igWhite;
+      .carousel-content-user {
+        border-bottom: 1px solid @igBorder;
         cursor: not-allowed;
-        font-size: 28px;
+        display: flex;
+        flex-direction: row;
+        font-size: 14px;
+        height: 58px;
+  
+        .carousel-content-user-details {
+          display: flex;
+          flex-direction: column;
+          height: 40px;
+          justify-content: center;
+          margin-left: 12px;
+  
+          div:first-child {
+            font-weight: 600;
+            height: 18px;
+  
+            span {
+              color: @igBlue;
+              margin-left: 0.5em;
+            }
+          }
+  
+          div:last-child {
+            align-items: center;
+            display: flex;
+            font-size: 12px;
+            height: 18px;
+          }
+        }
+  
+        img {
+          border-radius: 20px;
+          height: 40px;
+          width: 40px;
+        }
       }
+  
+      .carousel-content-caption {
+        display: flex;
+        flex-grow: 1;
+        font-size: 14px;
+        padding: 12px 0px;
 
-      div {
+        span:first-child {
+          cursor: not-allowed;
+          font-weight: 600;
+          margin-right: 0.5em;
+        }
+      }
+  
+      .carousel-content-buttons  {
         align-items: center;
+        border-top: 1px solid @igBorder;
         display: flex;
         height: 40px;
         justify-content: space-between;
-        width: 120px;
+  
+        i {
+          -webkit-text-stroke: 1px @igWhite;
+          cursor: not-allowed;
+          font-size: 28px;
+        }
+  
+        div {
+          align-items: center;
+          display: flex;
+          height: 40px;
+          justify-content: space-between;
+          width: 120px;
+        }
+  
+        &:last-child {
+          margin-left: auto;
+        }
       }
-
-      &:last-child {
-        margin-left: auto;
-      }
-    }
-
-    .carousel-content-date {
-      align-items: center;
-      color: @igGrey;
-      cursor: not-allowed;
-      display: flex;
-      font-size: 10px;
-      height: 19px;
-
-      span:first-child {
-        margin-right: 0.5em;
-      }
-    }
-
-    .carousel-content-footer {
-      align-items: flex-end;
-      border-top: 1px solid @igBorder;
-      display: flex;
-      font-size: 14px;
-      height: 35px;
-      justify-content: space-between;
-      margin-top: 4px;
-
-      div {
+  
+      .carousel-content-date {
+        align-items: center;
+        color: @igGrey;
+        cursor: not-allowed;
+        display: flex;
+        font-size: 10px;
+        height: 19px;
+  
         span:first-child {
-          color: @igLinkBlue;
+          margin-right: 0.5em;
+        }
+      }
+  
+      .carousel-content-footer {
+        align-items: flex-end;
+        border-top: 1px solid @igBorder;
+        display: flex;
+        font-size: 14px;
+        height: 35px;
+        justify-content: space-between;
+        margin-top: 4px;
+  
+        div {
+          span:first-child {
+            color: @igLinkBlue;
+            cursor: not-allowed;
+          }
+  
+          span {
+            color: @igGrey;
+          }
+        }
+  
+        i {
           cursor: not-allowed;
         }
-
-        span {
-          color: @igGrey;
-        }
-      }
-
-      i {
-        cursor: not-allowed;
       }
     }
   }

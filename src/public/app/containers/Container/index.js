@@ -36,6 +36,17 @@ class Container extends Component {
     this.setState({ displayCarousel: false });
   }
 
+  handleCarouselButtonClick(direction) {
+    const { selectedPicture } = this.state;
+    let idx = direction === 'right' ? selectedPicture + 1 : selectedPicture - 1; 
+
+    if (idx < 0 || idx > this.props.feed ) {
+      idx = selectedPicture;
+    }
+
+    this.setState({ selectedPicture: idx });
+  }
+
   componentWillMount() {
     this.handleResize();
   }
@@ -74,6 +85,7 @@ class Container extends Component {
         {displayCarousel &&
         <Carousel
           feed={feed}
+          handleCarouselButtonClick={(direction) => this.handleCarouselButtonClick(direction)}
           handleCloseCarousel={() => this.handleCloseCarousel()}
           selectedPicture={selectedPicture}
           username={user.username}

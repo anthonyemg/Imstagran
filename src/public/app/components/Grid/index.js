@@ -6,10 +6,6 @@ class Grid extends Component {
     super(props);
   }
 
-  // handleImageClick(idx) {
-  //   console.log('handleImageClick', idx);
-  // }
-
   handleGrid(feed, windowWidth) {
     const imageSize = windowWidth < 990 ? '33vw' : '293px';
 
