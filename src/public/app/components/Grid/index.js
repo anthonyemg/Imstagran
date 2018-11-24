@@ -20,7 +20,7 @@ class Grid extends Component {
         return (
           <div
             className='grid-component'
-            key ={idx}
+            key={idx}
             onClick={() => this.props.handleOpenCarousel(idx)}
           >
             <img
