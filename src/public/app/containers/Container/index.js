@@ -15,7 +15,7 @@ class Container extends Component {
 
     this.state = {
       displayCarousel: false,
-      selectedPicture: null,
+      selectedPictureIndex: null,
       windowHeight: 0,
       windowWidth: 0,
     };
@@ -29,7 +29,7 @@ class Container extends Component {
   }
 
   handleOpenCarousel(idx) {
-    this.setState({ displayCarousel: true, selectedPicture: idx });
+    this.setState({ displayCarousel: true, selectedPictureIndex: idx });
   }
 
   handleCloseCarousel() {
@@ -37,14 +37,14 @@ class Container extends Component {
   }
 
   handleCarouselButtonClick(direction) {
-    const { selectedPicture } = this.state;
-    let idx = direction === 'right' ? selectedPicture + 1 : selectedPicture - 1; 
+    const { selectedPictureIndex } = this.state;
+    let idx = direction === 'right' ? selectedPictureIndex + 1 : selectedPictureIndex - 1; 
 
-    if (idx < 0 || idx > this.props.feed ) {
-      idx = selectedPicture;
+    if (idx < 0 || idx >= 18 ) {
+      idx = selectedPictureIndex;
     }
 
-    this.setState({ selectedPicture: idx });
+    this.setState({ selectedPictureIndex: idx });
   }
 
   componentWillMount() {
@@ -64,7 +64,7 @@ class Container extends Component {
       feed,
       user,
     } = this.props;
-    const { displayCarousel, selectedPicture, windowWidth} = this.state;
+    const { displayCarousel, selectedPictureIndex, windowWidth} = this.state;
 
     return (
       <div className='container'>
@@ -87,7 +87,7 @@ class Container extends Component {
           feed={feed}
           handleCarouselButtonClick={(direction) => this.handleCarouselButtonClick(direction)}
           handleCloseCarousel={() => this.handleCloseCarousel()}
-          selectedPicture={selectedPicture}
+          selectedPictureIndex={selectedPictureIndex}
           username={user.username}
           userProfilePicture={user.profile_picture}
         />}

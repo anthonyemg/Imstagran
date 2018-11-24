@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 
 class Carousel extends Component {
   constructor(props) {
@@ -11,18 +12,29 @@ class Carousel extends Component {
     e.stopPropagation();
   }
 
+  handleArrowClick(e) {
+    e.key === 'ArrowLeft' && this.props.handleCarouselButtonClick('left');
+    e.key === 'ArrowRight' && this.props.handleCarouselButtonClick('right');
+  }
+
+  componentDidMount() {
+    window.addEventListener('keydown', (e) => this.handleArrowClick(e));
+  }
+  componentWillUnmount() {
+    window.removeEventListener('keydown', (e) => this.handleArrowClick(e));
+  }
+
   render() {
     const {
       feed,
       handleCarouselButtonClick,
       handleCloseCarousel,
-      selectedPicture,
+      selectedPictureIndex,
       username,
       userProfilePicture,
     } = this.props;
-    
-    console.log('Carousel render', selectedPicture)
-    const date = new Date(parseInt(feed[selectedPicture].created_time) * 1000);
+
+    const date = new Date(parseInt(feed[selectedPictureIndex].created_time) * 1000);
 
     return (
       <div
@@ -41,7 +53,7 @@ class Carousel extends Component {
           </div>
 
           <div className="carousel-image">
-            <img src={feed[selectedPicture].images.standard_resolution.url} /> 
+            <img src={feed[selectedPictureIndex].images.standard_resolution.url} /> 
           </div>
 
           <div className="carousel-content">
@@ -52,13 +64,13 @@ class Carousel extends Component {
                   {`${username}`}
                   <span>Follow</span>
                 </div>
-                <div>{feed[selectedPicture].location.name}</div>
+                <div>{feed[selectedPictureIndex].location.name}</div>
               </div>
             </div>
 
             <div className="carousel-content-caption">
-              <span>{`${feed[selectedPicture].caption.from.username}`}</span>
-              <spam>{feed[selectedPicture].caption.text}</spam>
+              <span>{`${_.get(feed[selectedPictureIndex].caption, 'from.username', '')}`}</span>
+              <span>{`${_.get(feed[selectedPictureIndex].caption, 'text', '')}`}</span>
             </div>
 
             <div className="carousel-content-buttons">
